@@ -5,8 +5,9 @@
 <v-app-bar id="banner" prominent>
     <!--Logo-->
     <div id="contenedor_logo">
-    <router-link to="/"
+    <router-link to="/">
     <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
+    </router-link>
     </div>
 
     <v-spacer></v-spacer>
