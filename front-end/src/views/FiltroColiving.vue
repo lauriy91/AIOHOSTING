@@ -22,7 +22,7 @@ export default {
         id: 1,
         url:"https://i.ibb.co/X7s3Srm/detallada-1.jpg",
         titulo: "Hotel Costa",
-        ciudad: "San Andrés",
+        ciudad: "San Andrés y Providencia",
         numero:4.3
         },
         {
