@@ -7,8 +7,8 @@
         <img
           src="https://image.flaticon.com/icons/png/512/1216/1216882.png"
           alt=""
-          width="25px"
-          height="25px"
+          width="20px"
+          height="20px"
         />
       </button>
     </div>
@@ -20,8 +20,8 @@
         <img
           src="https://image.flaticon.com/icons/png/512/1216/1216930.png"
           alt=""
-          width="25px"
-          height="25px"
+          width="20px"
+          height="20px"
         />
       </button>
     </div>
@@ -33,8 +33,8 @@
         <img
           src="https://image.flaticon.com/icons/png/512/1216/1216878.png"
           alt=""
-          width="25px"
-          height="25px"
+          width="20px"
+          height="20px"
         />
       </button>
     </div>
