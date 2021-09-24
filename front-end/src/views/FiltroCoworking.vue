@@ -1,37 +1,67 @@
 <template>
-  <div class="coworking">
-    <h1>Coworking</h1>
+<div>
+    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
+    <h1 class="coworking">Coworking</h1>
     <div class="container">
-      <v-row>
-      <Card titulo="Hostal Wiwa" numeroo= 4.8 ciudad="Pereira"></Card>
-      </v-row>
-      <v-row>
-      <Card titulo="Hotel Bogotá" numeroo= 3.1 ciudad="Bogotá"></Card>
-      </v-row>
-      <v-row>
-      <Card titulo="Hostal Americas" numeroo= 3.5 ciudad="Medellín"></Card>
+      <v-row v-for="item in coliving" :key="item.id">
+      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar"></Card>
       </v-row>
     </div>
   </div>
 </template>
 
 <script>
+import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
 export default {
+  data(){
+    return{
+      busqueda:true,
+      coliving:[
+        {
+        id: 1,
+        url:"https://i.ibb.co/9nWW87V/Young-man-with-cup-of-tea-looking-at-data-on-laptop-display-being-pointed-at-by-one-of-colleagues-at.jpg",
+        titulo: "Hotel Wiwa",
+        ciudad: "Medellín",
+        numero:4.3 
+        },
+        {
+        id: 2,
+        url:"https://i.ibb.co/nbpXn8w/Startup-business-teamwork-concept-Group-of-perspective-young-people-on-meeting-in-big-modern-library.jpg",
+        titulo: "Hotel Bogotá",
+        ciudad: "Bogotá",
+        numero:3.8
+        },
+        {
+        id: 3,
+        url:"https://i.ibb.co/x2Z8qsf/Creative-group-working-on-startup-using-laptops-in-modern-co-working-with-potted-plant-Business-coll.jpg",
+        titulo: "Hostal Americas",
+        ciudad: "C3",
+        numero:4.7
+        },
+      ]
+    }
+  },
   components: {
     Card,
+    BannerDescripcion,
 
   },
+
 };
 </script>
 
-<style>
+<style scoped>
 .coworking {
-  font-size: 30px !important;
-  color: darkcyan;
+  font-size: 60px !important;
+  color: purple;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin-inline-start: 11rem;
 }
-
+.lugar{
+  font-size: 24px;
+  
+}
 
 </style>

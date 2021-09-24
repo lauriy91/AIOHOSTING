@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-row  dense align-content="center">
       <v-col cols="4">
         <!--Imagen-->
@@ -7,7 +7,7 @@
           <div>
             <v-img
               height="250"
-              src="https://i.ibb.co/X7s3Srm/detallada-1.jpg"
+              :src="url"
             ></v-img>
           </div>
         </v-card>
@@ -16,7 +16,7 @@
         <!--Puntuacion-->
         <v-col>
           <v-row>
-            <v-col cols="12" class="nombrehotel">{{ titulo }}</v-col>
+            <v-col cols="12" :class="nombrehotel">{{ titulo }}</v-col>
             <v-col cols="5" class="textobullet">Puntuación:{{numeroo}} </v-col>
             <v-rating
               :value="numeroo"
@@ -57,13 +57,19 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+    };
   },
   props: {
     numeroo: Number,
     titulo: String,
     ciudad: String,
+    url: String,
+    nombrehotel: String,
   },
+  methods:{
+
+  }
 };
 </script>
 <style scoped>
@@ -81,7 +87,7 @@ export default {
 }
 
 .textobullet {
-  font-size: 30 !important;
+  font-size: 24px !important;
   color: black;
   font-weight: bold;
 }
@@ -94,10 +100,18 @@ export default {
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: black;
 }
 .nombrehotel {
   font-size: 30px;
   color: darkcyan;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
+.nombrehotel2 {
+  font-size: 30px;
+  color: purple;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bold;
@@ -108,7 +122,7 @@ export default {
 
 .preciohotel {
   font-size: 35px;
-  color: darkcyan;
+  color:purple;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-align: center;
