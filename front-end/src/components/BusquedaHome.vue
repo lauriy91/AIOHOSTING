@@ -7,7 +7,6 @@
       icon="mdi-magnify"
       placeholder="Buscar"
     />
-    <v-icon width="20px">fas fa-search</v-icon>
   </div>
 </template>
 
