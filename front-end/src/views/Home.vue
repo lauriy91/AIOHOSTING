@@ -5,7 +5,7 @@
 
     <!--LOGO DE LA APLICACIÓN-->
     <div class= "logo">
-    <img id="logo" style= "width:100px" src="https://i.ibb.co/2ystntY/logoALO.jpg" />
+    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" />
     </div>
 
     <!--CONTENEDOR DE BOTONES COWORKING - COLIVING-->
@@ -137,7 +137,7 @@ export default {
 /*ESTILO TITUL0*/
 #titulo {
   margin-top: 10px;
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
   color: rgb(123, 48, 153);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
@@ -147,7 +147,7 @@ export default {
 #parrafo1 {
   color: rgb(9, 109, 122);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-top: -20px;
 }
 
@@ -155,7 +155,7 @@ export default {
 #parrafo2 {
   color: rgb(77, 74, 77);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 #textoCoworking{
@@ -193,7 +193,7 @@ export default {
   justify-content: right;
   align-content: center;
   flex-wrap: nowrap;
-  margin-top: 115px;
+  margin-top: 238px;
   margin-right:100px ;
 }
 

@@ -1,60 +1,50 @@
 <template>
-  <div class="footer">
-    <!--Botón Facebook-->
-    <div>
-      <button onclick="location.href='https://www.facebook.com'">
-        <!--Icono Facebook-->
-        <img
-          src="https://image.flaticon.com/icons/png/512/1216/1216882.png"
-          alt=""
-          width="20px"
-          height="20px"
-        />
-      </button>
-    </div>
+  <v-footer
+    white
+    padless
+  >
+    <v-card
+      class="flex"
+      flat
+      tile
+    >
+      <v-card-title>
+        <v-spacer></v-spacer>
 
-    <!--Botón LinkedIn-->
-    <div>
-      <button onclick="location.href='https://co.linkedin.com/'">
-        <!--Icono LinkedIn-->
-        <img
-          src="https://image.flaticon.com/icons/png/512/1216/1216930.png"
-          alt=""
-          width="20px"
-          height="20px"
-        />
-      </button>
-    </div>
-
-    <!--Botón Instagram-->
-    <div>
-      <button onclick="location.href='https://www.instagram.com/'">
-        <!--Icono Instagram-->
-        <img
-          src="https://image.flaticon.com/icons/png/512/1216/1216878.png"
-          alt=""
-          width="20px"
-          height="20px"
-        />
-      </button>
-    </div>
-  </div>
+        <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="boton"
+          dark
+          icon
+        >
+          <v-icon size="24px">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
+      </v-card-title>
+    </v-card>
+  </v-footer>
 </template>
 
+
 <script>
-export default {
-  name: "FooterDescripcion",
-};
+  export default {
+    data: () => ({
+      icons: [
+        'mdi-facebook', 
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
+    }),
+  }
 </script>
 
 <style>
-.footer {
+.boton {
   display: flex;
-  float: right;
-}
-
-.footer div {
-  margin-top: 1rem;
-  margin-left: 1rem;
+  color: grey !important;
+ 
 }
 </style>
