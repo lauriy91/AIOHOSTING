@@ -88,6 +88,5 @@ class ServerController {
 }
 
 
-
 //Exportamos como default para que se pueda utilizar desde cualquier modulo del proyecto
 exports.default = ServerController;
