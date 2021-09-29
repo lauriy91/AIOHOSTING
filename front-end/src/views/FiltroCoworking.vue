@@ -1,5 +1,6 @@
 <template>
-<div>
+<div lass="cow">
+    <BannerDescripcion :ver="busqueda"></BannerDescripcion>>
     <v-app-bar id="banner" prominent>
     <!--Logo-->
     <div id="contenedor_logo">
@@ -68,7 +69,7 @@ export default {
         id: 3,
         url:"https://i.ibb.co/x2Z8qsf/Creative-group-working-on-startup-using-laptops-in-modern-co-working-with-potted-plant-Business-coll.jpg",
         titulo: "Hostal Americas",
-        ciudad: "C3",
+        ciudad: "Passto",
         numero:4.7
         },
       ]

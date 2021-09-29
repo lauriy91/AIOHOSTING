@@ -1,30 +1,38 @@
 <template>
-    <!--Barra superior - Banner-->
-
-    <!--Logo y botones de español y buscar-->
-    <div class="nav">
-
-        <!--Logo-->
-        <img class="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
-        <div class="contenedor_nav">
-        <div class="b_busqueda">
-            <span>Español</span>
-            <input style="color: white;" type="text" icon="mdi-magnify" placeholder="Buscar" />
-        </div>
-
-        <!--Botones de home y regresar-->
-        <div class="nav_pag">
-            <router-link to="/">
-            <span class="texto_botones">Home</span>
-            </router-link>
-            <router-link to="/filtrocoliving">
-            <span class="texto_botones">Regresar</span>
-            </router-link>
-        </div>
-        </div>
-        
-        <!--Cierre Barra superior - Banner-->
+  <div>
+    <v-app-bar id="banner" prominent>
+    <!--Logo-->
+    <div id="contenedor_logo">
+    <router-link to="/">
+    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
+    </router-link>
     </div>
+    <v-spacer></v-spacer>
+    <!--Contenedor botones de la parte superior izquierda-->
+    <div id="botones_banner">
+    <!--Botón idiomas-->
+    <v-btn id="boton_idiomas"
+      rounded dark>
+      Español
+    </v-btn>
+    <!--Buscador-->
+    <div id="buscador">
+      <v-btn id = "btn_buscar"
+        rounded dark> 
+        Buscar
+      </v-btn>
+    </div>
+    <div>
+      <br>
+      <br>
+      <label id="texto_moneda"></label>
+    </div>
+    <!--Cierre contenedor botones de la parte superior izquierda-->
+    </div>
+    <!--Cierre banner-->
+</v-app-bar>
+  
+  </div>
 </template>
 
     <script>

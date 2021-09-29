@@ -7,7 +7,7 @@
         <div class="cont_nombre">
             <div class="nombre">
             <h1>Coworking</h1>
-            <h1>Hostal Wiwa</h1>
+            <h2>Hostal Wiwa</h2>
             </div>
 
             <!--Contenedor puntaje ciudad y rating-->
@@ -65,6 +65,7 @@
             encontrará club para niños y adolescentes, con pelotero y videojuegos.
             El staff de recreación organiza clases de baile, entre otras
             actividades.</p>
+            
             </div>
             <div style="width: 40%" id="iconos_servicios">
             <div>
@@ -143,12 +144,20 @@ export default {
   font-size: 1.3rem;
 }
 
-/*Estilos para el nombre del alojamiento*/
+/*Estilos para el nombre de la pag*/
 .nombre h1 {
+  color: #009494;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*Estilos para el nombre del alojamiento*/
+.nombre h2 {
   color: #009494;
   font-size: 3rem;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /*Estilos para puntaje y cicudad*/
@@ -161,7 +170,7 @@ export default {
   color: #009494;
   font-size: 3rem;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: right;
 }
 
@@ -182,7 +191,7 @@ export default {
 
 /*Estilos para el botón reservar*/
 #boton_reservar {
-  font-family: Arial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #fafafa;
   font-size: 1.8rem;
   padding: 5px;
