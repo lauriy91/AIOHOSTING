@@ -1,18 +1,49 @@
 <template>
   <div>
-    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
+    <v-app-bar id="banner" prominent>
+    <!--Logo-->
+    <div id="contenedor_logo">
+    <router-link to="/">
+    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
+    </router-link>
+    </div>
+    <v-spacer></v-spacer>
+    <!--Contenedor botones de la parte superior izquierda-->
+    <div id="botones_banner">
+    <!--Botón idiomas-->
+    <v-btn id="boton_idiomas"
+      rounded dark>
+      Español
+    </v-btn>
+    <!--Buscador-->
+    <div id="buscador">
+      <v-btn id = "btn_buscar"
+        rounded dark> 
+        Buscar
+      </v-btn>
+    </div>
+    <div>
+      <br>
+      <br>
+      <label id="texto_moneda"></label>
+    </div>
+    <!--Cierre contenedor botones de la parte superior izquierda-->
+    </div>
+    <!--Cierre banner-->
+</v-app-bar>
     <h1 class="coworking">Coliving</h1>
     <div class="container">
       <v-row v-for="item in coliving" :key="item.id">
       <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar"></Card>
       </v-row>
     </div>
+    <footer-descripcion/>
   </div>
 </template>
-
 <script>
 import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
+import FooterDescripcion from '../components/FooterDescripcion.vue';
 export default {
   data(){
     return{
@@ -43,14 +74,12 @@ export default {
     }
   },
   components: {
-    Card,
-    BannerDescripcion,
-
+  Card,
+  BannerDescripcion,
+  FooterDescripcion,
   },
-
 };
 </script>
-
 <style scoped>
 .coworking {
   font-size: 60px !important;
@@ -63,6 +92,4 @@ export default {
   font-size: 24px;
   
 }
-
-
 </style>

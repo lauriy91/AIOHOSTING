@@ -1,6 +1,5 @@
     <template>
     <div id="cont_general">
-
       <!--Contenedor superior-->
         <div>
 
@@ -40,10 +39,10 @@
         <!--Contenedor imagen alojamiento-->
         <div id="imagen">
             <img
-            src="https://image.freepik.com/free-photo/smart-asian-woman-freelance-online-working-from-home-with-laptop_29393-468.jpg"
+            src="https://i.ibb.co/9wKf2tj/portrait-of-young-pretty-woman-sitting-at-table-in-black-shirt-working-on-laptop-in-co-working-offic.jpg"
             alt=""
             width="100%"
-            height="100%"
+            height="70%"
             />
             <!--Cierre contenedor imagen alojamiento-->
         </div>
@@ -51,7 +50,7 @@
         <!--Contenedor descripcion y servicios-->
         <div class="cont_descripcion">
             <div style="margin-top: 1rem" class="descripcion">
-            <h2 style="margin: 1rem; color: #673c97">
+            <h2 style=" color: #673c97">
                 Lo que ofrece este lugar:
             </h2>
             <p>
@@ -169,9 +168,7 @@ export default {
 /*Estilos para la imagen*/
 #imagen {
   grid-area: imagen;
-  background-color: burlywood;
-  width: 100%;
-  height: 360px;
+ 
 }
 
 /*Grid para los iconos de los servicios*/
