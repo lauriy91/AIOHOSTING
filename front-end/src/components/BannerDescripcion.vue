@@ -1,98 +1,87 @@
 <template>
-  <div>
-    <v-app-bar id="banner" prominent>
+  <!--Barra superior - Banner-->
+
+  <!--Logo y botones de español y buscar-->
+  <div class="nav">
     <!--Logo-->
-    <div id="contenedor_logo">
-    <router-link to="/">
-    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
-    </router-link>
+    <div class="container_logo">
+        <img class="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
     </div>
-    <v-spacer></v-spacer>
-    <!--Contenedor botones de la parte superior izquierda-->
-    <div id="botones_banner">
-    <!--Botón idiomas-->
-    <v-btn id="boton_idiomas"
-      rounded dark>
-      Español
-    </v-btn>
-    <!--Buscador-->
-    <div id="buscador">
-      <v-btn id = "btn_buscar"
-        rounded dark> 
-        Buscar
-      </v-btn>
+    <Filtros v-if="ver"></Filtros>
+    <div class="contenedor_general">
+      <div class="contenedor_nav">
+        <Busqueda></Busqueda>
+        <div class="nav_pag">
+          <router-link to="/">
+            <span class="texto_botones">Home</span>
+          </router-link>
+          <router-link to="/filtrocoliving">
+            <span class="texto_botones">Regresar</span>
+          </router-link>
+           <router-link to="/filtrocoliving">
+            <span class="texto_botones">Login</span>
+          </router-link>
+        </div>
+      </div>
+      <!--Botones de home y regresar-->
     </div>
-    <div>
-      <br>
-      <br>
-      <label id="texto_moneda"></label>
-    </div>
-    <!--Cierre contenedor botones de la parte superior izquierda-->
-    </div>
-    <!--Cierre banner-->
-</v-app-bar>
-  
+    <!--Cierre Barra superior - Banner-->
   </div>
 </template>
 
     <script>
+import Busqueda from './Busqueda.vue';
+import Filtros from './Filtros.vue';
 export default {
-    name: "BannerDescripcion"
+  components: { Busqueda, Filtros },
+  name: "BannerDescripcion",
+  props:{
+    ver:Boolean
+    
+  }
 };
 </script>
 
     <style>
-    /*Estilos para el banner principal*/
-    .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    height: 120px;
-    background: linear-gradient(to right, #3d4484, #b853db);
-    }
-    .logo {
-    height: 8rem;
-    background-color: white;
+/*Estilos para el banner principal*/
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 138px;
+  background: linear-gradient(to right, #3d4484, #b853db);
+}
+.container_logo{
     margin-left: 1rem;
-    }
-    .b_busqueda {
-    padding: 10px;
-    color: white;
-    }
-    .b_busqueda span {
-    padding: 5px;
-    border-right: 1px solid white;
-    }
-    .b_busqueda input {
-    border: 1px solid white;
-    padding: 6px;
-    border-radius: 10px;
-    margin-left: 5px;
-    width: 120px;
-    }
-    .nav_pag {
-    padding: 10px;
-    display: flex;
-    }
-    .nav_pag a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    padding: 0 10px;
-    }
+  width: auto;
+  height:  100%;
+}
+.logo {
+display: block;
+height: 120px;
+width: 120px;
+padding: 2px 5px 5px;
+background-color: white;
+}
+.contenedor_general{
+    padding: 1rem;
+}
+.nav_pag {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav_pag a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  padding: 0 10px;
+}
 
-    .texto_botones {
-    color: white;
-    }
-
-    /*Estilos para el contenedor del logo*/
-    #contenedor_logo {
-    background-color: white;
-    }
-
-    ::placeholder { color: white; }
-
+.texto_botones {
+  color: white;
+}
 </style>

@@ -1,37 +1,7 @@
 <template>
 <div lass="cow">
-    <BannerDescripcion :ver="busqueda"></BannerDescripcion>>
-    <v-app-bar id="banner" prominent>
-    <!--Logo-->
-    <div id="contenedor_logo">
-    <router-link to="/">
-    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
-    </router-link>
-    </div>
-    <v-spacer></v-spacer>
-    <!--Contenedor botones de la parte superior izquierda-->
-    <div id="botones_banner">
-    <!--Botón idiomas-->
-    <v-btn id="boton_idiomas"
-      rounded dark>
-      Español
-    </v-btn>
-    <!--Buscador-->
-    <div id="buscador">
-      <v-btn id = "btn_buscar"
-        rounded dark> 
-        Buscar
-      </v-btn>
-    </div>
-    <div>
-      <br>
-      <br>
-      <label id="texto_moneda"></label>
-    </div>
-    <!--Cierre contenedor botones de la parte superior izquierda-->
-    </div>
-    <!--Cierre banner--> 
-</v-app-bar>
+    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
+    
     <h1 class="coworking">Coworking</h1>
     <div class="container">
       <v-row v-for="item in coliving" :key="item.id">
@@ -69,7 +39,7 @@ export default {
         id: 3,
         url:"https://i.ibb.co/x2Z8qsf/Creative-group-working-on-startup-using-laptops-in-modern-co-working-with-potted-plant-Business-coll.jpg",
         titulo: "Hostal Americas",
-        ciudad: "Passto",
+        ciudad: "Pasto",
         numero:4.7
         },
       ]
@@ -78,7 +48,7 @@ export default {
   components: {
     Card,
     FooterDescripcion,
-
+    BannerDescripcion,
   },
 
 };
@@ -94,7 +64,5 @@ export default {
 }
 .lugar{
   font-size: 24px;
-  
 }
-
 </style>
