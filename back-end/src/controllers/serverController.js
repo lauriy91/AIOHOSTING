@@ -10,7 +10,6 @@
 }]
 
 
-
 class ServerController {
     constructor() {
 
@@ -28,7 +27,7 @@ class ServerController {
     //Consultar todos los alojamientos
     consultAlojamiTodos(req, res) {
         //Respuesta con todos los alojamientos
-        res.status(200).json(alojamientos);
+        res.status(200).json({alojamientos});
     }
 
         //Metodo para consultar los alojamientos por ID
