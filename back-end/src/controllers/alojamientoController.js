@@ -1,90 +1,85 @@
 //Importamos el modelo reserva
 const alojamiento = require('../models/alojamiento')
 
-//JSON con información de los alojamientos
-    var alojamientos = [{
-    id: 1, nombre: "Hostal Wiwa", tipo: "Coworking", escenario: "Urbano", precio: "800.000", tiempo_estadia: "8h", descripcion: "Frente a la playa de Cartagena de Indias, en Bocagrande, el Cartagena Plaza Hotel ofrece desayuno buffet, personal disponible 24h para asistirlo y actividades de recreación.El Wi- Fi y el estacionamiento son gratuitos. El huésped puede disfrutar de la piscina con vista panorámica, ubicada en el piso 18, o salir de rumba en la discoteca Rezak Bar Club.Además encontrará club para niños y adolescentes, con pelotero y videojuegos.El staff de recreación organiza clases de baile, entre otras actividades."}, {
-    id: 2, nombre: "Hostal Americas", tipo: "Coworking", escenario: "Urbano", precio: "400.000", tiempo_estadia: "4h", descripcion: "Frente a la playa de Cartagena de Indias, en Bocagrande, el Cartagena Plaza Hotel ofrece desayuno buffet, personal disponible 24h para asistirlo y actividades de recreación. El Wi-Fi y el estacionamiento son gratuitos. El huésped puede disfrutar de la piscina con vista panorámica, ubicada en el piso 18, o salir de rumba en la discoteca Rezak Bar Club. Además encontrará club para niños y adolescentes, con pelotero y videojuegos. El staff de recreación organiza clases de baile, entre otras actividades."}, {
-    id: 3, nombre: "Hostel Costa", tipo: "Coliving", escenario: "Rural", precio: "800.000", tiempo_estadia: "15d", descripcion: "Frente a la playa de Cartagena de Indias, en Bocagrande, el Cartagena Plaza Hotel ofrece desayuno buffet, personal disponible 24h para asistirlo y actividades de recreación. El Wi-Fi y el estacionamiento son gratuitos.El huésped puede disfrutar de la piscina con vista panorámica, ubicada en el piso 18, o salir de rumba en la discoteca Rezak Bar Club. Además encontrará club para niños y adolescentes, con pelotero y videojuegos. El staff de recreación organiza clases de baile, entre otras actividades"}, {
-    id: 4, nombre: "Hotel Tequendama", tipo: "Coliving", escenario: "Rural", precio: "400.000", tiempo_estadia: "7d", descripcion: "Frente a la playa de Cartagena de Indias, en Bocagrande, el Cartagena Plaza Hotel ofrece desayuno buffet, personal disponible 24h para asistirlo y actividades de recreación. El Wi-Fi y el estacionamiento son gratuitos. El huésped puede disfrutar de la piscina con vista panorámica, ubicada en el piso 18, o salir de rumba en la discoteca Rezak Bar Club. Además encontrará club para niños y adolescentes, con pelotero y videojuegos. El staff de recreación organiza clases de baile, entre otras actividades."}]
-
 
 class AlojamientoController {
+
     constructor() {
 
     }
 
-    //Método para crear alojamiento
-    crearAlojamiento(req, res) {
+    //Crear Alojamiento
+    crear(req, res) {
         //Enviamos los datos al cuerpo
-        alojamientos.push(req.body);
-        //Retornamos mensaje de creacion con exito
-        res.status(201).json({ message: "Alojamiento creado con exito" });
+        alojamiento.create(req.body, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            }
+            else {
+                res.status(201).json(data);
+            }
+        });
     }
 
-
-    //Consultar todos los alojamientos
-    consultAlojamiTodos(req, res) {
-        //Respuesta con todos los alojamientos
-        res.status(200).json({alojamientos});
-    }
-
-        //Metodo para consultar los alojamientos por ID
-        consultAlojamiPorID(req, res) {
-            // Mensaje en consola
-            console.log("Consultando alojamientos");
-            let id = req.params.id;
-            //Creamos variable para la respuesta
-            let alojamientoResp = null;
-            alojamientos.forEach(element => {
-                if (id == element.id) {
-                    alojamientoResp = element;
-                }
-            });
-    
-            if (alojamientoResp != null) {
-                res.status(200).json(alojamientoResp);
+    //Consultar todos los Alojamientos
+    consultar(req, res) {
+        alojamiento.find((error, data)=>{
+            if (error){
+                res.status(500).send();
             } else {
-                res.status(404).json({ message: "Alojamiento no encontrado" });
-            }
-        }
-    
-
-    //Actualizar alojamientos
-    actualizarAlojamiento(req, res){
-        let {id, nombre, tipo, escenario, precio, tiempo_estadia, descripcion, imagen} = req.body;
-        alojamientos.forEach(element=>{
-            if (id == element.id){
-                element.nombre = nombre;
-                element.tipo = tipo;
-                element.escenario = escenario; 
-                element.precio = precio;
-                element.tiempo_estadia = tiempo_estadia;
-                element.descripcion = descripcion;
-                element.imagen = imagen;
+                res.status(200).json(data);
             }
         });
-        res.status(200).json({message: "Actualizacion con exito"});
     }
 
-    //Eliminar alojamientos
-    eliminarAlojamiento(req, res){
-        let {id} = req.body;
-        //Eliminar un elemento por id del arreglo
-        let tempAlojamiento = [];
-        alojamientos.forEach(element =>{
-            if(element.id != id){
-                tempAlojamiento.push(element);
+    //Consultar Alojamiento por ID
+    consultaPorID(req, res) {
+        let id = req.params.id;
+        alojamiento.findById(id, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json(data);
             }
         });
+    }
 
-        alojamientos = tempAlojamiento;
-        res.status(200).json({message: "Eliminación completada"})
+    //Actualizar Alojamiento
+    actualizar(req, res) {
+        let { id, nombre, tipo, escenario, precio, tiempo_estadia, descripcion } = req.body;
+        let objAlojamiento = { 
+            id, 
+            nombre, 
+            tipo, 
+            escenario, 
+            precio, 
+            tiempo_estadia, 
+            descripcion }
 
-    }   
+        alojamiento.findByIdAndUpdate(id, {
+            $set: objAlojamiento
+        }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json(data);
+            }
+        });
+    }
+
+    //Eliminar Alojamiento
+    eliminar(req, res) {
+        let { id } = req.body;
+        alojamiento.findByIdAndRemove(id, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json(data);
+            }
+        })
+    }
 
 }
 
-
-//Exportamos como default para que se pueda utilizar desde cualquier modulo del proyecto
+//Exportamos el controlador que se pueda importar en alojamientoRouter
 module.exports = AlojamientoController;

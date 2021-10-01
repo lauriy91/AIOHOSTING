@@ -1,6 +1,5 @@
 //Importamos mongoose
 const mongoose = require('mongoose');
-
 //Constante que nos representará mongoose
 const Schema = mongoose.Schema;
 
@@ -19,7 +18,7 @@ const alojamientoSchema = new Schema({
     type: Number
     },
     tiempo_estadia:{
-       type: String 
+        type: String 
     },
     descripcion:{
         type:String
