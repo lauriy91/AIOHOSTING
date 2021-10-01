@@ -1,68 +1,63 @@
 //Importamos el modelo reserva
-const usuario = require('../models/usuario')
+const usuario = require('../models/usuario');
 
-//JSON con información de los usuarios
-var usuarios = [{
-    id: 1, username: "Aiohosting", password: "xxxxxx", emailUser: "user@gmail.com"
- }
- ]
- 
- class UsuarioController{
+class UsuarioController {
 
     constructor() {
     }
 
     //Método para crear un Usuario
-    crearUsuario(req, res) {
+    registrar(req, res) {
         //Enviamos los datos al cuerpo
-        usuarios.create(req.body, (error, data) =>{
+        usuario.create(req.body, (error, data) =>{
             if(error) {
                 //next(error);
-                res.status(500).send()}
+                res.status(500).json({error});}
             else {
         //Retornamos mensaje de creacion con exito
-                res.status(201).json({ message: "Usuario creado con exito" });}
+                res.status(201).json(data);}
     });
     }
 
     //Consultar todos los Usuarios
-    consultaTodosUsuarios(req, res) {
+    consultaUsuarios(req, res) {
         //Respuesta con todos los Usuarios
-        usuarios.find((error, data)=>{
+        usuario.find((error, data)=>{
             if (error){
                 //next(error);
-                res.status(500).send();}
+                res.status(500).json({error});}
             else {
-                res.status(200).json({message: "Resultado de todos los usuarios"});}
+                res.status(200).json(data);}
             });
     }
 
-    //Metodo para consultar las usuario por ID
+    //Metodo para consultar las usuario por ID (REVISAR)
     consultaUsuarioPorID(req, res) {
         let id = req.params.id;
-        usuarios.findById(id, (error, data)=>{
+        usuario.findById(id, (error, data)=>{
             if (error){
-                res.status(500).send();}
+                res.status(500).json({error});}
             else {
-                res.status(200).json({message: "Resultado de todas los usuarios"});}
+                res.status(200).json(data);}
         });
     }
     
     //Actualizar usuario
     actualizarUsuario(req, res){
         let {id, username, password, emailUser} = req.body;
-        let obj = {
+        let objUsuario = {
             username,
             password,
             emailUser
         }
-        usuarios.findByIdAndUpdate(id, {
-            $set: obj
-        }, (error, data) => {
+        usuario.findByIdAndUpdate(id, {
+            // con el $ set se actualiza el objeto
+            $set: objUsuario}, 
+            (error, data) => {
             if (error) {
-            res.status(500).send();
+            res.status(500).json({error});
             } else {
-            res.status(200).json({message: "Actualizacion con exito"});
+            res.status(200).json(data);
             }
         });
     }
@@ -71,12 +66,12 @@ var usuarios = [{
     eliminarUsuario(req, res){
         let {id} = req.body;
         //Eliminar un elemento por id del arreglo
-        usuarios.findByIdAndRemove(id, (error, data) => {
+        usuario.findByIdAndRemove(id, (error, data) => {
             if(error){
-                res.status(500).send();
+                res.status(500).json({error});
             }
             else{
-                res.status(200).json({message: "Eliminación con exito"});
+                res.status(200).json(data);
             } 
         });
 

@@ -1,42 +1,33 @@
 //Importamos el modelo reserva
-const reserva = require('../models/reserva')
+const reserva = require('../models/reserva');
     
-//JSON con información de las reservas
-var reservas = [
-    {id: 1, nombre: "Andrea Villada", telefono: "111111", email: "andre@gmail.com"}, 
-    {id: 2, nombre: "Francisco Petrizzo", telefono: "222222", email: "francisco@gmail.com"}, 
-    {id: 3, nombre: "Freddy Lopez", telefono: "333333", email: "freddy@gmail.com"}, 
-    {id: 4, nombre: "Hugo Ramirez", telefono: "444444", email: "hugo@gmail.com"}, 
-    {id: 5, nombre: "Laura Rodriguez", telefono: "555555", email: "laura@gmail.com"}
-]
-
 class ReservaController{
 
     constructor() {
     }
 
     //Método para crear la reserva
-    crearReserva(req, res) {
+    registrar(req, res) {
         //Enviamos los datos al cuerpo
-        reservas.create(req.body, (error, data) =>{
+        reserva.create(req.body, (error, data) =>{
             if(error) {
                 //next(error);
-                res.status(500).send()}
+                res.status(500).json({error});}
             else {
         //Retornamos mensaje de creacion con exito
-                res.status(201).json({ message: "Reserva creada con exito" });}
+                res.status(201).json(data);}
     });
     }
 
     //Consultar todos las Reservas
     consultaTodasReserva(req, res) {
         //Respuesta con todos las Reservas
-        reservas.find((error, data)=>{
+        reserva.find((error, data)=>{
             if (error){
                 //next(error);
-                res.status(500).send();}
+                res.status(500).json({error});}
             else {
-                res.status(200).json({message: "Resultado de todas las reservas"});}
+                res.status(200).json(data);}
             });
     }
 
@@ -45,27 +36,28 @@ class ReservaController{
         let id = req.params.id;
         reservas.findById(id, (error, data)=>{
             if (error){
-                res.status(500).send();}
+                res.status(500).json({error});}
             else {
-                res.status(200).json({message: "Resultado de todas las reservas"});}
+                res.status(200).json(data);}
         });
     }
     
     //Actualizar reservas
     actualizarReserva(req, res){
         let {id, nombre, telefono, email} = req.body;
-        let obj = {
+        let objReserva = {
             nombre,
             telefono,
             email
         }
-        reservas.findByIdAndUpdate(id, {
-            $set: obj
-        }, (error, data) => {
+        reserva.findByIdAndUpdate(id, {
+            // $set comando para actualizar el objeto
+            $set: objReserva}, 
+            (error, data) => {
             if (error) {
-            res.status(500).send();
-            } else {
-            res.status(200).json({message: "Actualizacion con exito"});
+            res.status(500).json({error});} 
+            else {
+            res.status(200).json(data);
             }
         });
     }
@@ -74,12 +66,12 @@ class ReservaController{
     eliminarReserva(req, res){
         let {id} = req.body;
         //Eliminar un elemento por id del arreglo
-        reservas.findByIdAndRemove(id, (error, data) => {
+        reserva.findByIdAndRemove(id, (error, data) => {
             if(error){
-                res.status(500).send();
+                res.status(500).json({error});
             }
             else{
-                res.status(200).json({message: "Reserva eliminada con exito"});
+                res.status(200).json(data);
             } 
         });
 

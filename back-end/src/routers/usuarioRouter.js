@@ -16,10 +16,10 @@ class UsuarioRouter{
         const objUsuarioC = new UsuarioController();
         //Se asigna a la ruta el método de consultarAlojamientos de serverController
         this.router.post("/usuarios", objUsuarioC.registrar);
-        this.router.get("/usuarios", objUsuarioC.getAllUsers);
-        this.router.get("/usuarios/:id", objUsuarioC.getUserById);
-        this.router.put("/usuarios", objUsuarioC.update);
-        this.router.delete("/usuarios", objUsuarioC.delete);
+        this.router.get("/usuarios", objUsuarioC.consultaUsuarios);
+        this.router.get("/usuarios/:id", objUsuarioC.consultaUsuarioPorID);
+        this.router.put("/usuarios", objUsuarioC.actualizarUsuario);
+        this.router.delete("/usuarios", objUsuarioC.eliminarUsuario);
     }
 
 }

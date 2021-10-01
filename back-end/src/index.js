@@ -1,11 +1,11 @@
 //Importar express
-const express = require('express');
+const express = require("express");
 //Importar mongoose
 const mongoose = require('mongoose');
 //Importamos la conexión a la BD
 const DatabaseConnection = require("./database/databaseConnection");
 //Importamos las rutas
-const serverRouter = require('./routers/serverRouter');
+const AlojamientoRouter = require('./routers/alojamientoRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
 const ReservaRouter = require('./routers/reservaRouter');
 
@@ -36,12 +36,12 @@ class Server{
         /*** CREAR RUTAS ***/
 
         //Creamos rutas. Después de importar serverRouters creamos el objeto serverR
-        const serverR = new serverRouter.default();
-        const usuarioR = new UsuarioRouter();
-        const reservaR = new ReservaRouter();
+        const alojamientoRouter = new AlojamientoRouter.default();
+        const usuarioRouter = new UsuarioRouter();
+        const reservaRouter = new ReservaRouter();
         //Añadir la rutas al servidor El servidor utiliza la ruta que se creó previamente
         this.app.use(router);
-        this.app.use(serverRouter.router);
+        this.app.use(alojamientoRouter.router);
         this.app.use(reservaRouter.router);
         this.app.use(usuarioRouter.router);
         //Levantar el servidor y ponerlo a la escucha
@@ -54,12 +54,11 @@ class Server{
         //mongoose.Promise = global.Promise;
         mongoose.connect(database.db).then(()=>{
             console.log("Conexión a BD con éxito");
-        }).catch((err)=>{
+        }).catch((error)=>{
             console.error("Error de conexión");
         });
     }
 
-
 }
 
-const objServer = new Server();
+const obj = new Server();

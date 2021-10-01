@@ -193,7 +193,7 @@ export default {
   justify-content: right;
   align-content: center;
   flex-wrap: nowrap;
-  margin-top: 238px;
+  margin-top: 120px;
   margin-right:100px ;
 }
 

@@ -16,7 +16,7 @@ const reservaSchema = new Schema({
         type: String
     }
 }, {
-    //representacion de la coleccion
+    //colección que alojará
     collection: "reservas"
 });
 

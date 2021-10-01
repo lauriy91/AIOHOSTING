@@ -33,6 +33,7 @@ export default {
 
 <style scoped>
 .filtro{
+    width: 50%;
     display: flex;
     flex-direction: row;
     align-content: center;

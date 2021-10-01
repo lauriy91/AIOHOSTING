@@ -16,10 +16,10 @@ class ReservaRouter{
         const objReservaC = new ReservaController();
         //Se asigna a la ruta el método de consultarAlojamientos de serverController
         this.router.post("/reservas", objReservaC.registrar);
-        this.router.get("/reservas", objReservaC.getAllUsers);
-        this.router.get("/reservas/:id", objReservaC.getUserById);
-        this.router.put("/reservas", objReservaC.update);
-        this.router.delete("/reservas", objReservaC.delete);
+        this.router.get("/reservas", objReservaC.consultaTodasReserva);
+        this.router.get("/reservas/:id", objReservaC.consultaReservasPorID);
+        this.router.put("/reservas", objReservaC.actualizarReserva);
+        this.router.delete("/reservas", objReservaC.eliminarReserva);
     }
 
 }

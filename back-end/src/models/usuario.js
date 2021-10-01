@@ -15,7 +15,7 @@ const usuarioSchema = new Schema({
         type: String
     }
 }, {
-    //representa con que coleccion
+    //colección donde se alojaran
     collection: "usuarios"
 });
 

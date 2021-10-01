@@ -65,4 +65,6 @@ export default {
 .lugar{
   font-size: 24px;
 }
+
+
 </style>

@@ -1,7 +1,11 @@
+//Importamos mongoose
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
 
-const alojamientoSchema = new schema({
+//Constante que nos representará mongoose
+const Schema = mongoose.Schema;
+
+//Creamos el objeto
+const alojamientoSchema = new Schema({
     nombre: {
         type: String
     },
@@ -19,12 +23,11 @@ const alojamientoSchema = new schema({
     },
     descripcion:{
         type:String
-    },
-    imagem:{
-        type:null
     }
 }, {
+    //colección que alojará
     collection: "alojamientos"
 });
 
+//Exportamos bajo este modelo de reserva
 module.exports = mongoose.model('Alojamiento', alojamientoSchema);
