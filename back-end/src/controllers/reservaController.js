@@ -34,7 +34,7 @@ class ReservaController{
     //Metodo para consultar las reservas por ID
     consultaReservasPorID(req, res) {
         let id = req.params.id;
-        reservas.findById(id, (error, data)=>{
+        reserva.findById(id, (error, data)=>{
             if (error){
                 res.status(500).json({error});}
             else {
