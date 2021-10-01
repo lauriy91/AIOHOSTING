@@ -2,32 +2,29 @@
   <!-- CONTENEDOR GRID IZQUIERDO -->
 
   <v-container class="contenedor">
-
     <!--LOGO DE LA APLICACIÓN-->
-    <div class= "logo">
-    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" />
+    <div class="logo">
+      <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" />
     </div>
 
     <!--CONTENEDOR DE BOTONES COWORKING - COLIVING-->
     <div class="row" style="height:0px">
       <div class="col s8">
-      <div class="barraMorada">
-        <v-bottom-navigation id="coco" v-model="value" dark>
+        <div class="barraMorada">
+          <v-bottom-navigation id="coco" v-model="value" dark>
+            <router-link to="/Filtrocoworking">
+              <span id="textoCoworking"> Coworking </span>
+            </router-link>
 
-          <router-link to="/Filtrocoworking">
-            <span id="textoCoworking"> Coworking </span>
-          </router-link>
+            <div id="separador">
+              <span>|</span>
+            </div>
 
-          <div id="separador">
-            <span>|</span>
-          </div>
-
-          <router-link to="/Filtrocoliving">
-            <span id="textoColiving">Coliving</span>
-          </router-link>
-
-        </v-bottom-navigation>
-      </div>
+            <router-link to="/Filtrocoliving">
+              <span id="textoColiving">Coliving</span>
+            </router-link>
+          </v-bottom-navigation>
+        </div>
 
         <!-- CONTENEDOR TEXTO -->
 
@@ -38,11 +35,23 @@
                 <thead>
                   <tr>
                     <div class="tabla">
-                    <h1 id="titulo"><b>QUIENES <br> SOMOS</b></h1><br>
-                    <p id="parrafo1">Adipliscing elit, sed diam nonummy nibh euismod tincidunt utlaoreet dolore</p>
-                    <p id="parrafo2">Magno alquam valutpat. Ut uisi enim ad inimi venion, quis nostitud
-            xelt talingt hgamert loobit abants serpendi ses bolitare vastabuam
-            jertirs cfisrm, cell illum dolore.</p>
+                      <h1 id="titulo">
+                        <b
+                          >QUIENES <br />
+                          SOMOS</b
+                        >
+                      </h1>
+                      <br />
+                      <p id="parrafo1">
+                        Adipliscing elit, sed diam nonummy nibh euismod
+                        tincidunt utlaoreet dolore
+                      </p>
+                      <p id="parrafo2">
+                        Magno alquam valutpat. Ut uisi enim ad inimi venion,
+                        quis nostitud xelt talingt hgamert loobit abants
+                        serpendi ses bolitare vastabuam jertirs cfisrm, cell
+                        illum dolore.
+                      </p>
                     </div>
                   </tr>
                 </thead>
@@ -55,36 +64,33 @@
             </v-simple-table>
           </v-app>
         </div>
-
       </div>
     </div>
 
     <!-- CONTENEDOR GRID DERECHO -->
 
     <!-- CONTENEDOR IMAGEN DE FONDO  -->
-      <div class="contFondo">
-        <img height="500px" src="https://i.ibb.co/r4YGF3V/img-intro.png" />
-      </div>
-      
+    <div class="contFondo">
+      <img height="500px" src="https://i.ibb.co/r4YGF3V/img-intro.png" />
+    </div>
 
     <!--Contenedor botones de la parte superior derecha-->
     <div class="Buscador_Idioma">
-      <busqueda-home/>
+      <busqueda-home />
     </div>
 
     <!--Contenedor pie de pagina-->
     <div class="Footer">
-      <footer-descripcion/>
+      <footer-descripcion />
     </div>
   </v-container>
 </template>
- 
 
- <!-- SCRIPT -->
+<!-- SCRIPT -->
 <script>
-import FooterDescripcion from '../components/FooterDescripcion.vue';
-import BusquedaHome from '../components/BusquedaHome.vue';
-import PiePagina from '../components/PiePagina.vue';
+import FooterDescripcion from "../components/FooterDescripcion.vue";
+import BusquedaHome from "../components/BusquedaHome.vue";
+import PiePagina from "../components/PiePagina.vue";
 
 export default {
   components: {
@@ -103,21 +109,18 @@ export default {
   },
 };
 </script>
- 
 
- <!-- SECCIÓN ESTILOS -->
+<!-- SECCIÓN ESTILOS -->
 
 <style>
 /*ESTILO BANNER QUE CONTIENE LOS BOTONES DE COWORKING Y COLIVING */
 #coco {
   margin-top: 140px;
   margin-left: -300px;
-  background: linear-gradient(
-    70deg,
-    rgba(63, 5, 156, 0.925),
-    rgb(56, 42, 77));
+  background: linear-gradient(70deg, rgba(63, 5, 156, 0.925), rgb(56, 42, 77));
   font-size: 2em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: 80%;
 }
 
@@ -140,7 +143,8 @@ export default {
   font-size: 2.5em;
   margin-bottom: 20px;
   color: rgb(123, 48, 153);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /**Estilo parrafo 1**/
@@ -154,17 +158,17 @@ export default {
 /**Estilo parrafo 2**/
 #parrafo2 {
   color: rgb(77, 74, 77);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1em;
 }
 
-#textoCoworking{
+#textoCoworking {
   font-size: 1rem;
   padding-left: 0px;
   color: white;
 }
 
-#separador{
+#separador {
   margin-top: 15px;
   font-size: 1.2rem;
   margin-left: 30px;
@@ -172,7 +176,7 @@ export default {
   color: white;
 }
 
-#textoColiving{
+#textoColiving {
   font-size: 1rem;
   padding-left: 0px;
   color: white;
@@ -186,7 +190,7 @@ export default {
   margin-left: 500px;
 }
 
-.Buscador_Idioma{
+.Buscador_Idioma {
   display: flex;
   position: absolute;
   flex-direction: row;
@@ -194,33 +198,33 @@ export default {
   align-content: center;
   flex-wrap: nowrap;
   margin-top: 120px;
-  margin-right:100px ;
+  margin-right: 100px;
 }
 
-.Footer{
+.Footer {
   position: absolute;
   padding-top: 0px;
   padding-left: 920px;
 }
 
-#app{
+#app {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-bottom: 0px;
   width: 100%;
 }
 
-.text-left{
+.text-left {
   font-size: 3rem;
 }
 
-.tabla{
+.tabla {
   width: 40%;
   text-align: justify;
 }
 
-@media (width: 100%){
-  .contenedor{
+@media (width: 100%) {
+  .contenedor {
     width: 100% !important;
     height: 100%;
   }

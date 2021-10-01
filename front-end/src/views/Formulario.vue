@@ -1,119 +1,82 @@
 <template>
-<div>
-<!---->
-<!--Barra superior - Banner-->
-<v-app-bar id="banner" prominent>
-    <!--Logo-->
-    <div id="contenedor_logo">
-    <router-link to="/">
-    <img id="logo" src="https://i.ibb.co/6NjgxCg/logo.png" alt="Logo" />
-    </router-link>
-    </div>
+  <div>
+    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
+    <!---->
+    <!--Barra superior - Banner-->
+    <v-app-bar id="banner2" prominent>
+      <h2 id="texto_banner2">¡Estas a un paso del lugar de tus sueños!</h2>
+    </v-app-bar>
 
-    <v-spacer></v-spacer>
+    <v-app-bar id="banner3" prominent>
+      <h3 id="texto_banner3">
+        ¡Felicitaciones! Seleccionaste la mejor ubicacion.<br />¡No te la
+        pierdas! Confirma ahora tu reserva
+      </h3>
+    </v-app-bar>
 
-    <!--Contenedor botones de la parte superior izquierda-->
-    <div id="botones_banner">
-    <!--Botón idiomas-->
-    
-    <v-btn id="boton_idiomas"
-      rounded dark>
-      Español
-    </v-btn>
-
-    <!--Buscador-->
-    <div id="buscador">
-      <v-btn id = "btn_buscar"
-        rounded dark> 
-        Buscar
-      </v-btn>
-    </div>
+    <!--Inicio cuerpo de la página-->
     <div>
-      <br>
-      <br>
-      <label id="texto_moneda">Moneda: COP</label>
-    </div>
-    
+      <!--Form-->
+      <div id="formulario">
+        <br />
+        <br />
+        <label><h2 id="txt_datosform">Ingresa tus datos:</h2></label>
+        <v-form v-model="valid">
+          <v-text-field
+            label="Name"
+            v-model="name"
+            :rules="nameRules"
+            :counter="40"
+            required
+            name="Name"
+          ></v-text-field>
 
+          <v-text-field
+            label="E-mail"
+            v-model="email"
+            :rules="emailRules"
+            required
+            name="Email"
+          ></v-text-field>
 
-    <!--Cierre contenedor botones de la parte superior izquierda-->
-    </div>
-    <!--Cierre banner-->
-    
-</v-app-bar>
+          <v-text-field
+            label="Telefono"
+            v-model="telefono"
+            :rules="telefonoRules"
+            required
+            name="Telefono"
+          ></v-text-field>
 
-<v-app-bar id="banner2" prominent>
-  <h2 id="texto_banner2">¡Estas a un paso del lugar de tus sueños!</h2>
-</v-app-bar>
+          <v-btn id="btn_enviar" @click="Enviar" :disabled="!valid" dark
+            >Enviar</v-btn
+          >
+        </v-form>
+      </div>
 
-<v-app-bar id="banner3" prominent>
-  <h3 id="texto_banner3">¡Felicitaciones! Seleccionaste la mejor ubicacion.<br>¡No te la pierdas! Confirma ahora tu reserva</h3>
-</v-app-bar>
-
-<!--Inicio cuerpo de la página-->
-<div>
-
-        <!--Form-->
-    <div id="formulario">
-      <br>
-      <br>
-      <label><h2 id ="txt_datosform">Ingresa tus datos:</h2></label>
-      <v-form v-model="valid">
-      <v-text-field
-        label="Name"
-        v-model="name"
-        :rules="nameRules"
-        :counter="40"
-        required
-        name="Name"
-      ></v-text-field>
-
-      <v-text-field
-        label="E-mail"
-        v-model="email"
-        :rules="emailRules"
-        required
-        name="Email"
-      ></v-text-field>
-
-      <v-text-field
-        label="Telefono"
-        v-model="telefono"
-        :rules="telefonoRules"
-        required
-        name="Telefono"
-      ></v-text-field>
-
-      <v-btn id ="btn_enviar"
-          @click="Enviar"
-          :disabled="!valid" dark
-      >Enviar</v-btn>
-  </v-form>
-  
-
-    </div>
-
-    <!--Cierrebotón de reserva-->
+      <!--Cierrebotón de reserva-->
     </div>
 
     <!--Tratamiento de datos-->
 
     <div id="checkbox">
       <label class="custom-radio-checkbox">
-      <!-- Input oculto -->
-      <input class="custom-radio-checkbox__input" type="checkbox">
-      <!-- Imagen en sustitucion -->
-      <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
-      <!-- Texto -->
-      <span class="custom-radio-checkbox__text"> Acepto el uso y tratamiento de datos</span>
+        <!-- Input oculto -->
+        <input class="custom-radio-checkbox__input" type="checkbox" />
+        <!-- Imagen en sustitucion -->
+        <span
+          class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"
+        ></span>
+        <!-- Texto -->
+        <span class="custom-radio-checkbox__text">
+          Acepto el uso y tratamiento de datos</span
+        >
       </label>
     </div>
 
-<div id="pie_pagina">
+    <div id="pie_pagina">
       <v-footer>
         <v-card class="flex" flat tile>
           <v-card-title class="teal">
-  
             <v-spacer></v-spacer>
 
             <v-btn v-for="icon in icons" :key="icon" class="mx-4" dark icon>
@@ -122,153 +85,144 @@
               </v-icon>
             </v-btn>
           </v-card-title>
-
-            
-          
         </v-card>
       </v-footer>
     </div>
-
-</div>
-
+  </div>
 </template>
-
 <script>
-  export default {
-    data: () => ({
-      icons: [
-        'mdi-facebook',
-        'mdi-twitter',
-        'mdi-linkedin',
-        'mdi-instagram',
-      ],
-    }),
-  }
+import BannerDescripcion from "../components/BannerDescripcion.vue";
+
+export default {
+  data: () => ({
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+  }),
+
+  components: {
+    BannerDescripcion,
+  },
+};
 </script>
 
 <style>
 /*Estilos para el banner*/
 #banner {
-background: linear-gradient(to right, #3d4484, #b853db);
-
+  background: linear-gradient(to right, #3d4484, #b853db);
 }
 
-#buscador{
+#buscador {
   height: 10px;
 }
 
 /*Estilos para el logo*/
 #logo {
-width: 8rem;
-/*float:left;*/
+  width: 8rem;
+  /*float:left;*/
 }
 
 /*Estilos para el contenedor del logo*/
 #contenedor_logo {
-background-color: white;
+  background-color: white;
 }
 
 /*Estilos para el buscador de la esquina superior derecha*/
 #buscador {
-background-color: #b953db00;
-width: 10rem;
-height: 0.5rem;
-float: right;
-
+  background-color: #b953db00;
+  width: 10rem;
+  height: 0.5rem;
+  float: right;
 }
 
 /*Estilos para el texto del buscador de la esquina superior derecha*/
 #texto_buscador {
-color: rgb(194, 169, 169);
-font-size: 1rem;
-font-weight: bold;
+  color: rgb(194, 169, 169);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 /*Estilos para el botón de idiomas*/
 #boton_idiomas {
-background-color: #b853db;
-width: 7rem;
-height: 2rem;
-float: left;
-margin-top: 20px;
-margin-right: 20px;
-
+  background-color: #b853db;
+  width: 7rem;
+  height: 2rem;
+  float: left;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 /*Estilos para el texto de idiomas*/
 #texto_idioma {
-color: white;
-font-size: 1rem;
-font-weight: bold;
-font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
-#formulario{
+#formulario {
   padding-right: 500px;
   padding-bottom: 30px;
   padding-left: 500px;
   border: "1";
 }
 
-#banner2{
+#banner2 {
   background: linear-gradient(to right, #f9f7fa, #f9f7fa);
 }
 
-#texto_banner2{
+#texto_banner2 {
   color: #3d4484;
   padding-top: 20px;
   text-align: center;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#banner3{
+#banner3 {
   background-color: darkcyan;
 }
 
-#texto_banner3{
+#texto_banner3 {
   color: whitesmoke;
-  font-family:cursive;
+  font-family: cursive;
   padding-top: 20px;
   text-align: center;
   width: 100%;
 }
 
-#txt_datosform{
+#txt_datosform {
   text-align: center;
 }
 
-#checkbox{
+#checkbox {
   text-align: center;
   padding-bottom: 100px;
 }
 
-#texto_moneda{
+#texto_moneda {
   position: absolute;
   color: white;
   font-size: 1.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-left: 90px;
 }
 
-#btn_buscar{
+#btn_buscar {
   background-color: #b853db;
   width: 7rem;
   height: 2rem;
   float: left;
   margin-top: 20px;
-  border: 2px solid rgb(249, 249, 250)
-  
+  border: 2px solid rgb(249, 249, 250);
 }
 
-#btn_enviar{
+#btn_enviar {
   background: linear-gradient(70deg, rgba(47, 1, 255, 0.678), rgb(170, 3, 248));
 }
 
-#pie_pagina{
+#pie_pagina {
   width: 100vmax;
   margin: 0%;
 }
-
 </style>

@@ -195,7 +195,7 @@ export default {
   color: #fafafa;
   font-size: 1.8rem;
   padding: 5px;
-  background: linear-gradient(to right, #3d4484, #b853db);
+  background: linear-gradient(70deg, rgba(47, 1, 255, 0.678), rgb(170, 3, 248));
   margin-top: 1rem;
   float: right;
 }

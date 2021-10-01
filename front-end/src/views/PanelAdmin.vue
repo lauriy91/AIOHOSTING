@@ -1,14 +1,15 @@
 <template>
-<div lass="cow">
+  <div class="cow">
     <BannerDescripcion :ver="busqueda"></BannerDescripcion>
     
-    <h1 class="coworking">Coworking</h1>
+    <h1 class="coworking">Panel Admin</h1>
     <div class="container">
       <v-row v-for="item in coliving" :key="item.id">
-      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar" :admin="false"></Card>
+      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar" :admin="true"></Card>
       </v-row>
     </div>
     <footer-descripcion/>
+    <formulario-boton/>
   </div>
 </template>
 
@@ -17,8 +18,9 @@ import Formularioboton from "../components/Formulario-boton.vue";
 import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
+
 export default {
-  data(){
+    data(){
     return{
       busqueda:true,
       coliving:[
@@ -51,8 +53,9 @@ export default {
     FooterDescripcion,
     BannerDescripcion,
     Formularioboton,
+   
   },
-};
+}
 </script>
 
 <style scoped>
@@ -66,5 +69,4 @@ export default {
 .lugar{
   font-size: 24px;
 }
-
-</style>
+</style>        

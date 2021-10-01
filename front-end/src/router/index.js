@@ -5,6 +5,7 @@ import FiltroCoworking from '../views/FiltroCoworking.vue'
 import FiltroColiving from '../views/FiltroColiving.vue'
 import Formulario from '../views/Formulario.vue'
 import DescripcionHostal from '../views/DescripcionHostal.vue'
+import PanelAdmin from '../views/PanelAdmin.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/descripcionhostal',
     name: 'DescripcionHostal',
     component: DescripcionHostal
+  },
+  {
+    path: '/paneladmin',
+    name: 'PanelAdmin',
+    component: PanelAdmin
   }
 ]
 

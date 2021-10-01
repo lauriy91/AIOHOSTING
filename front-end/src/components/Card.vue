@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import FormularioBoton from './Formulario-boton.vue';
 export default {
   data() {
     return {
@@ -66,6 +67,7 @@ export default {
     ciudad: String,
     url: String,
     nombrehotel: String,
+    admin: Boolean
   },
   methods:{
 
