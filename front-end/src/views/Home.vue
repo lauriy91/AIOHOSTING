@@ -1,3 +1,4 @@
+
 <template>
   <!-- CONTENEDOR GRID IZQUIERDO -->
 
@@ -113,7 +114,13 @@ export default {
 <!-- SECCIÓN ESTILOS -->
 
 <style>
-/*ESTILO BANNER QUE CONTIENE LOS BOTONES DE COWORKING Y COLIVING */
+#contenedor{
+@media screen and ([contenedor]) {
+ /* Nuestras nuevas reglas con este ancho o menos de pantalla */
+}
+}
+/*ESTILO BANNER QUE CONTIENE LOS BOTONES DE COWORKING Y COLIVING */ 
+  
 #coco {
   margin-top: 140px;
   margin-left: -300px;
