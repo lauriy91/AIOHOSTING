@@ -44,11 +44,13 @@ class ReservaController{
     
     //Actualizar reservas
     actualizarReserva(req, res){
-        let {id, nombre, telefono, email} = req.body;
+        let {id, nombre, telefono, email, fecha_inicio, id_alojamiento} = req.body;
         let objReserva = {
             nombre,
             telefono,
-            email
+            email,
+            fecha_inicio,
+            id_alojamiento
         }
         reserva.findByIdAndUpdate(id, {
             // $set comando para actualizar el objeto
