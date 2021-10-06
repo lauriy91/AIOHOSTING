@@ -23,8 +23,8 @@ class AlojamientoController {
 
     //Consultar todos los Alojamientos
     consultar(req, res) {
-        alojamiento.find((error, data)=>{
-            if (error){
+        alojamiento.find((error, data) => {
+            if (error) {
                 res.status(500).send();
             } else {
                 res.status(200).json(data);
@@ -46,23 +46,26 @@ class AlojamientoController {
 
     //Actualizar Alojamiento
     actualizar(req, res) {
-        let { id, nombre, tipo, escenario, precio, tiempo_estadia, descripcion } = req.body;
-        let objAlojamiento = { 
+        let { id, nombre, tipo, ubicacion, alojamiento, tiempo_estadia, fecha_ingreso, precio, descripcion, imagen } = req.body;
+        let objAlojamiento = {
             id, 
             nombre, 
             tipo, 
-            escenario, 
-            precio, 
+            ubicacion, 
+            alojamiento, 
             tiempo_estadia, 
-            descripcion }
+            fecha_ingreso, 
+            precio, 
+            descripcion, 
+            imagen }
 
         alojamiento.findByIdAndUpdate(id, {
             $set: objAlojamiento
-        }, (error, data) => {
-            if (error) {
+        }, (error, data)=>{
+            if(error){
                 res.status(500).send();
             } else {
-                res.status(200).json(data);
+                res.status(200).json({data});
             }
         });
     }
@@ -78,6 +81,91 @@ class AlojamientoController {
             }
         })
     }
+
+
+    //Filtro nombre
+    consultaPorNombre(req, res) {
+        let nombre = req.params.nombre;
+        alojamiento.find({ nombre: nombre }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }
+
+    //Filtro tipo
+    consultaPorTipo(req, res) {
+        let tipo = req.params.tipo;
+        alojamiento.find({ tipo: tipo }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }    
+
+    //Filtro ubicacion
+    consultaPorUbicacion(req, res) {
+        let ubicacion = req.params.ubicacion;
+        alojamiento.find({ ubicacion: ubicacion }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }   
+
+    //Filtro alojamiento
+    consultaPorAlojamiento(req, res) {
+        let falojamiento = req.params.alojamiento;
+        alojamiento.find({ alojamiento: falojamiento }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }  
+
+    //Filtro tiempo estadia
+    consultaPorTEstadia(req, res) {
+        let tiempo_estadia = req.params.tiempo_estadia;
+        alojamiento.find({ tiempo_estadia: tiempo_estadia }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }  
+
+    //Filtro fecha ingreso
+    consultaPorFIngreso(req, res) {
+        let fecha_ingreso = req.params.fecha_ingreso;
+        alojamiento.find({ fecha_ingreso: fecha_ingreso }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }  
+
+    //Filtro precio
+    consultaPorPrecio(req, res) {
+        let precio = req.params.precio;
+        alojamiento.find({ precio: precio }, (error, data) => {
+            if (error) {
+                res.status(500).send();
+            } else {
+                res.status(200).json({ data });
+            }
+        });
+    }  
 
 }
 

@@ -44,11 +44,10 @@ class UsuarioController {
     
     //Actualizar usuario
     actualizarUsuario(req, res){
-        let {id, username, password, emailUser} = req.body;
+        let {id, username, password } = req.body;
         let objUsuario = {
             username,
-            password,
-            emailUser
+            password
         }
         usuario.findByIdAndUpdate(id, {
             // con el $ set se actualiza el objeto

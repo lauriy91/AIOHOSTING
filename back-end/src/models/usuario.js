@@ -10,9 +10,6 @@ const usuarioSchema = new Schema({
     },
     password: {
         type: String
-    },
-    email: {
-        type: String
     }
 }, {
     //colección donde se alojaran
