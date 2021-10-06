@@ -9,7 +9,7 @@
       </v-row>
     </div>
     <footer-descripcion/>
-    <formulario-boton/>
+
   </div>
 </template>
 
