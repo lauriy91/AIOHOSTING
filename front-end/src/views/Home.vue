@@ -1,4 +1,6 @@
 <template>
+
+<div class="gran_contenedor">
   <!-- CONTENEDOR GRID IZQUIERDO -->
 
   <v-container class="contenedor">
@@ -84,6 +86,8 @@
       <footer-descripcion />
     </div>
   </v-container>
+
+</div>
 </template>
 
 <!-- SCRIPT -->
@@ -113,10 +117,17 @@ export default {
 <!-- SECCIÓN ESTILOS -->
 
 <style>
+
+.gran_contenedor{
+  max-width: 1185px;
+  max-height: 600px;
+  padding: 2rem 4rem 2rem 4rem;
+}
+
 /*ESTILO BANNER QUE CONTIENE LOS BOTONES DE COWORKING Y COLIVING */
 #coco {
   margin-top: 140px;
-  margin-left: -300px;
+  max-width: 100%;
   background: linear-gradient(70deg, rgba(63, 5, 156, 0.925), rgb(56, 42, 77));
   font-size: 2em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -183,6 +194,7 @@ export default {
 }
 
 .contFondo {
+  max-width: 100%;
   position: relative;
   width: 50%;
   margin-top: 0px;

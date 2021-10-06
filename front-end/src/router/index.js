@@ -8,6 +8,7 @@ import DescripcionHostal from '../views/DescripcionHostal.vue'
 import PanelAdmin from '../views/PanelAdmin.vue'
 
 Vue.use(VueRouter)
+HTMLAllCollection.use(HtmlRouter)
 
 const routes = [
   {

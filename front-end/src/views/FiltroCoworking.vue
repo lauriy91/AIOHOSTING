@@ -1,5 +1,7 @@
 <template>
-<div lass="cow">
+<div class="gran_contenedor">
+
+<div class="cow">
     <BannerDescripcion :ver="busqueda"></BannerDescripcion>
     
     <h1 class="coworking">Coworking</h1>
@@ -10,6 +12,8 @@
     </div>
     <footer-descripcion/>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -56,6 +60,11 @@ export default {
 </script>
 
 <style scoped>
+
+.gran_contenedor{
+  width: 100%;
+}
+
 .coworking {
   font-size: 60px !important;
   color: purple;

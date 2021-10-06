@@ -51,16 +51,16 @@
         <div class="cont_descripcion">
             <div style="margin-top: 1rem" class="descripcion">
             <h2 style=" color: #673c97">
-                Lo que ofrece este lugar:
-            </h2>
-            <p>
+                Lo que ofrece este lugar: 
+            </h2><br>
+            <p style="text-align:justify;" width=90%>
                 Frente a la playa de Cartagena de Indias, en Bocagrande, el
                 Cartagena Plaza Hotel ofrece desayuno buffet, personal disponible
                 24h para asistirlo y actividades de recreacion. El Wi-Fi y el
                 estacionamiento son gratuitos.
             </p>
             
-            <p>El huésped puede disfrutar de la piscina con vista panorámica, ubicada
+            <p style="text-align:justify;">El huésped puede disfrutar de la piscina con vista panorámica, ubicada
             en el piso 18, o salir de rumba en la discoteca Rezak Bar Club. Además
             encontrará club para niños y adolescentes, con pelotero y videojuegos.
             El staff de recreación organiza clases de baile, entre otras
