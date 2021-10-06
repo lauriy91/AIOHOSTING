@@ -14,6 +14,12 @@ const reservaSchema = new Schema({
     },
     email: {
         type: String
+    },
+    fecha_inicio: {
+        type: String
+    },
+    id_alojamiento: {
+        type: String
     }
 }, {
     //colección que alojará

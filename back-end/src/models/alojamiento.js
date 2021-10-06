@@ -11,20 +11,29 @@ const alojamientoSchema = new Schema({
     tipo: {
         type: String
     },
-    escenario: {
+    ubicacion: {
         type: String
     },
+    alojamiento: {
+        type: String
+    },
+    tiempo_estadia: {
+        type: String
+    },
+    fecha_ingreso: {
+        type: String
+    }, 
     precio: {
-    type: Number
-    },
-    tiempo_estadia:{
-        type: String 
-    },
-    descripcion:{
-        type:String
+        type: Number
+    }, 
+    descripcion: {
+        type: String
+    }, 
+    imagen: {
+        type: String
     }
 }, {
-    //colección que alojará
+    //colección que alojara
     collection: "alojamientos"
 });
 
