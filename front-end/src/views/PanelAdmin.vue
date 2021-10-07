@@ -1,11 +1,11 @@
 <template>
   <div class="cow">
-    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
+    <Banner :ver="busqueda"></Banner>
     
     <h1 class="coworking">Panel Admin</h1>
     <div class="container">
       <v-row v-for="item in coliving" :key="item.id">
-      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar" :admin="true"></Card>
+      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numero="item.numero" :ciudad="item.ciudad" class="lugar" :admin="true"></Card>
       </v-row>
     </div>
     <footer-descripcion/>
@@ -15,7 +15,7 @@
 
 <script>
 import Formularioboton from "../components/Formulario-boton.vue";
-import BannerDescripcion from "../components/BannerDescripcion.vue";
+import Banner from "../components/Banner.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
 
@@ -51,7 +51,7 @@ export default {
   components: {
     Card,
     FooterDescripcion,
-    BannerDescripcion,
+    Banner,
     Formularioboton,
    
   },
@@ -69,4 +69,4 @@ export default {
 .lugar{
   font-size: 24px;
 }
-</style>        
+</style>    
