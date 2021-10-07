@@ -45,27 +45,27 @@ class AlojamientoController {
     }
 
     //Actualizar Alojamiento
-    actualizar(req, res) {
-        let { id, nombre, tipo, ubicacion, alojamiento, tiempo_estadia, fecha_ingreso, precio, descripcion, imagen } = req.body;
+    actualizar(req, res){
+        let {id, nombre, tipo, ubicacion, habitacion, tiempo_estadia, fecha_ingreso, precio, descripcion, imagen } = req.body;
         let objAlojamiento = {
-            id, 
-            nombre, 
-            tipo, 
-            ubicacion, 
-            alojamiento, 
-            tiempo_estadia, 
-            fecha_ingreso, 
+            nombre,
+            tipo,
+            ubicacion,
+            habitacion,
+            tiempo_estadia,
+            fecha_ingreso,
             precio, 
-            descripcion, 
-            imagen }
-
+            descripcion,
+            imagen
+        }
         alojamiento.findByIdAndUpdate(id, {
-            $set: objAlojamiento
-        }, (error, data)=>{
-            if(error){
-                res.status(500).send();
+            // con el $ set se actualiza el objeto
+            $set: objAlojamiento}, 
+            (error, data) => {
+            if (error) {
+            res.status(500).json({error});
             } else {
-                res.status(200).json({data});
+            res.status(200).json(data);
             }
         });
     }
@@ -120,9 +120,9 @@ class AlojamientoController {
     }   
 
     //Filtro alojamiento
-    consultaPorAlojamiento(req, res) {
-        let falojamiento = req.params.alojamiento;
-        alojamiento.find({ alojamiento: falojamiento }, (error, data) => {
+    consultaPorHabitacion(req, res) {
+        let habitacion = req.params.habitacion;
+        alojamiento.find({ habitacion: habitacion }, (error, data) => {
             if (error) {
                 res.status(500).send();
             } else {
