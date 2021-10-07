@@ -74,7 +74,31 @@ class UsuarioController {
             } 
         });
 
-    }   
+    }  
+    
+
+    //Metodo para validar usuario
+    login(req, res) {
+        let user = req.body.username;
+        let password = req.body.password;
+        usuario.findOne({ username: user }, (error, data) => {
+            if (error) {
+                res.status(500).json({ mensaje: "error" });
+            } else if (data==null) {
+                res.status(200).json({ mensaje: "Usuario no registrado" });
+            } else{
+                if (password === data.password) {
+                    res.status(200).json({
+                    mensaje: "exito",
+                    data,
+                });
+                } else {
+                res.status(200).json({ mensaje: "Email / contraseña incorrectos" });
+                }
+            }
+        });
+    }    
+    
 }
 
 //Exportamos como default para que se pueda utilizar desde cualquier modulo del proyecto
