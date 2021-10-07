@@ -44,9 +44,17 @@
           <v-col align-self="center" class="precio">
 
             <!--Botón-->
-            <router-link to="/descripcionhostal">
-            <a class="border-color"> Ver detalles </a>
+            <router-link v-if="!admin" to="/descripcionhostal" class="border color"> Ver detalles
             </router-link>
+            <v-row>
+              <v-col cols="6">
+                 <formulario-boton  v-if="admin" tipodeboton="Editar" espacio="900px" :editar="true"></formulario-boton>
+              </v-col>
+             <v-col cols="6">
+               <formulario-boton espacio="400px" v-if="admin" tipodeboton="Eliminar" :editar="false"></formulario-boton>
+             </v-col>
+            
+            </v-row>
           </v-col>
         </v-col>
       </v-col>
@@ -71,8 +79,12 @@ export default {
   },
   methods:{
 
-  }
+  },
+  components:{
+FormularioBoton
+  },
 };
+
 </script>
 <style scoped>
 .block {
