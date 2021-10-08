@@ -9,8 +9,8 @@
     </div>
 
     <!--CONTENEDOR DE BOTONES COWORKING - COLIVING-->
-    <div class="row" style="height:0px">
-      <div class="col s8">
+    <div class="row" style="height:100px">
+      <div class="col s8" style="height:100%">
         <div class="barraMorada">
           <v-bottom-navigation id="coco" v-model="value" dark>
             <router-link to="/Filtrocoworking">
@@ -233,7 +233,7 @@ export default {
 @media (width: 100%) {
   .contenedor {
     width: 100% !important;
-    height: 100%;
+    height: 100% !important;
   }
 }
 </style>
