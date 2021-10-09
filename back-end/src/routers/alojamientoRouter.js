@@ -24,7 +24,7 @@ class AlojamientoRouter {
         this.router.get("/alojamientos/nombre/:nombre", objAlojamientoC.consultaPorNombre);
         this.router.get("/alojamientos/tipo/:tipo", objAlojamientoC.consultaPorTipo);
         this.router.get("/alojamientos/ubicacion/:ubicacion", objAlojamientoC.consultaPorUbicacion);
-        this.router.get("/alojamientos/alojamiento/:alojamiento", objAlojamientoC.consultaPorAlojamiento);
+        this.router.get("/alojamientos/habitacion/:habitacion", objAlojamientoC.consultaPorHabitacion);
         this.router.get("/alojamientos/tiempo_estadia/:tiempo_estadia", objAlojamientoC.consultaPorTEstadia);
         this.router.get("/alojamientos/fecha_ingreso/:fecha_ingreso", objAlojamientoC.consultaPorFIngreso);
         this.router.get("/alojamientos/precio/:precio", objAlojamientoC.consultaPorPrecio);

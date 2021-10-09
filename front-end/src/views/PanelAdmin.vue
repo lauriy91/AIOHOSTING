@@ -4,8 +4,13 @@
     
     <h1 class="coworking">Panel Admin</h1>
     <div class="container">
+<<<<<<< HEAD
       <v-row v-for="item in coliving" :key="item.id">
       <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numero="item.numero" :ciudad="item.ciudad" class="lugar" :admin="true"></Card>
+=======
+      <v-row v-for="item in alojamiento" :key="item.id">
+      <Card nombrehotel="nombrehotel2" :url="item.imagen" :precio="item.precio" :tiempo="item.tiempo_estadia" :titulo="item.nombre" :escenario="item.escenario" :numeroo="item.puntuacion" :ciudad="item.ciudad" :tipo="item.tipo" :id="item._id" :descripcion="item.descripcion" class="lugar" :admin="true"></Card>
+>>>>>>> aafee9ddb690a577601a88ed837a37511a48af67
       </v-row>
     </div>
     <footer-descripcion/>
@@ -18,34 +23,12 @@ import Formularioboton from "../components/Formulario-boton.vue";
 import BannerHome from "../components/BannerHome.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
-
+import axios from 'axios';
 export default {
     data(){
     return{
       busqueda:true,
-      coliving:[
-        {
-        id: 1,
-        url:"https://i.ibb.co/9nWW87V/Young-man-with-cup-of-tea-looking-at-data-on-laptop-display-being-pointed-at-by-one-of-colleagues-at.jpg",
-        titulo: "Hotel Wiwa",
-        ciudad: "Medellín",
-        numero:4.3 
-        },
-        {
-        id: 2,
-        url:"https://i.ibb.co/nbpXn8w/Startup-business-teamwork-concept-Group-of-perspective-young-people-on-meeting-in-big-modern-library.jpg",
-        titulo: "Hotel Bogotá",
-        ciudad: "Bogotá",
-        numero:3.8
-        },
-        {
-        id: 3,
-        url:"https://i.ibb.co/x2Z8qsf/Creative-group-working-on-startup-using-laptops-in-modern-co-working-with-potted-plant-Business-coll.jpg",
-        titulo: "Hostal Americas",
-        ciudad: "Pasto",
-        numero:4.7
-        },
-      ]
+      alojamiento:[]
     }
   },
   components: {
@@ -55,6 +38,14 @@ export default {
     Formularioboton,
    
   },
+  mounted(){
+    axios.get('http://localhost:3000/alojamientos').then(res =>{
+      this.alojamiento = res.data
+
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
 }
 </script>
 

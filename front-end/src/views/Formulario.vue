@@ -1,59 +1,59 @@
 <template>
-  <div>
-    <BannerDescripcion :ver="busqueda"></BannerDescripcion>
-    <!---->
-    <!--Barra superior - Banner-->
-    <v-app-bar id="banner2" prominent>
-      <h2 id="texto_banner2">¡Estas a un paso del lugar de tus sueños!</h2>
-    </v-app-bar>
+<div>
+<!---->
+<!--Barra superior - Banner-->
+<banner-descripcion></banner-descripcion>
 
-    <v-app-bar id="banner3" prominent>
-      <h3 id="texto_banner3">
-        ¡Felicitaciones! Seleccionaste la mejor ubicacion.<br />¡No te la
-        pierdas! Confirma ahora tu reserva
-      </h3>
-    </v-app-bar>
+<v-app-bar id="banner2" prominent>
+  <h2 id="texto_banner2">¡Estas a un paso del lugar de tus sueños!</h2>
+</v-app-bar>
 
-    <!--Inicio cuerpo de la página-->
-    <div>
-      <!--Form-->
-      <div id="formulario">
-        <br />
-        <br />
-        <label><h2 id="txt_datosform">Ingresa tus datos:</h2></label>
-        <v-form v-model="valid">
-          <v-text-field
-            label="Name"
-            v-model="name"
-            :rules="nameRules"
-            :counter="40"
-            required
-            name="Name"
-          ></v-text-field>
+<v-app-bar id="banner3" prominent>
+  <h3 id="texto_banner3">¡Felicitaciones! Seleccionaste la mejor ubicacion.<br>¡No te la pierdas! Confirma ahora tu reserva</h3>
+</v-app-bar>
 
-          <v-text-field
-            label="E-mail"
-            v-model="email"
-            :rules="emailRules"
-            required
-            name="Email"
-          ></v-text-field>
+<!--Inicio cuerpo de la página-->
+<div>
 
-          <v-text-field
-            label="Telefono"
-            v-model="telefono"
-            :rules="telefonoRules"
-            required
-            name="Telefono"
-          ></v-text-field>
+        <!--Form-->
+    <div id="formulario">
+      <br>
+      <br>
+      <label><h2 id ="txt_datosform">Ingresa tus datos:</h2></label>
+      <v-form v-model="valid">
+      <v-text-field
+        label="Name"
+        v-model="reserva.name"
+        :rules="nameRules"
+        :counter="10"
+        required
+      ></v-text-field>
 
-          <v-btn id="btn_enviar" @click="Enviar" :disabled="!valid" dark
-            >Enviar</v-btn
-          >
-        </v-form>
-      </div>
+      <v-text-field
+        label="E-mail"
+        v-model="reserva.email"
+        :rules="emailRules"
+        required
+      ></v-text-field>
 
-      <!--Cierrebotón de reserva-->
+      <v-text-field
+        label="Telefono"
+        v-model="reserva.telefono"
+        :rules="telefonoRules"
+        required
+        name="Telefono"
+      ></v-text-field>
+
+      <v-btn id ="btn_enviar"
+          @click="enviar"
+          :disabled="!valid" dark
+      >Enviar</v-btn>
+  </v-form>
+  
+
+    </div>
+
+    <!--Cierrebotón de reserva-->
     </div>
 
     <!--Tratamiento de datos-->
@@ -91,17 +91,43 @@
   </div>
 </template>
 <script>
-import BannerDescripcion from "../components/BannerDescripcion.vue";
+import BannerDescripcion from '../components/BannerDescripcion.vue'
+  export default {
+  components: { BannerDescripcion },
+    data: () => ({
+      
+      icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
 
-export default {
-  data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-  }),
+      telefonoRules: [
+        v => !!v || 'Phone is required',
+        v => (v && v.length <= 10) || 'Phone must be 10 numbers',
+      ],
 
-  components: {
-    BannerDescripcion,
-  },
-};
+      valid: true,
+      reserva:{}
+    }),
+    methods:{
+      enviar(){
+        console.log("datos enviados")
+      },
+      validate () {
+        this.$refs.form.validate()
+      },
+    }
+  }
 </script>
 
 <style>

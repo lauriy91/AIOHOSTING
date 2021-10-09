@@ -14,7 +14,7 @@ const alojamientoSchema = new Schema({
     ubicacion: {
         type: String
     },
-    alojamiento: {
+    habitacion: {
         type: String
     },
     tiempo_estadia: {
