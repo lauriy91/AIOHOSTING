@@ -17,24 +17,21 @@ export default {};
 <style scoped>
 .b_busqueda {
   position: absolute;
-  float: right;
-  margin-top: -580px;
-  margin-right: -1000px;
-  color: rgb(255, 255, 255);
 }
 .b_busqueda span {
-  font-size: 15px;
-  font-weight: 700;
+  margin-left: 5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: rgb(255, 255, 255);
-  padding: 5px 1rem;
+  padding: 0.8rem 2.1rem 1rem 20rem;
   border-right: 2px solid white;
 }
 .b_busqueda input {
   border: 1.5px solid white;
   color: rgba(250, 250, 250, 0.856);
-  padding: 6px;
+  padding: 2% 6%; /** Distancia entre los bordes del ovalo de */
   border-radius: 20px;
-  margin-left: 1rem;
+  margin-left: 2rem;
   width: 130px;
   height: 25px;
 }

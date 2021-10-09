@@ -1,6 +1,6 @@
 <template>
   <div class="cow">
-    <Banner :ver="busqueda"></Banner>
+    <banner-home :ver="busqueda"></banner-home>
     
     <h1 class="coworking">Panel Admin</h1>
     <div class="container">
@@ -15,7 +15,7 @@
 
 <script>
 import Formularioboton from "../components/Formulario-boton.vue";
-import Banner from "../components/Banner.vue";
+import BannerHome from "../components/BannerHome.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
 
@@ -51,7 +51,7 @@ export default {
   components: {
     Card,
     FooterDescripcion,
-    Banner,
+    BannerHome,
     Formularioboton,
    
   },
