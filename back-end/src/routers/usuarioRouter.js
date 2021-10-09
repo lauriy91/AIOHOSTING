@@ -16,17 +16,6 @@ class UsuarioRouter{
         const objUsuarioC = new UsuarioController();
         //Se asigna a la ruta el método de consultarAlojamientos de serverController
         this.router.post("/usuarios", objUsuarioC.registrar);
-        this.router.get("/usuarios", objUsuarioC.consultaUsuarios);
-        this.router.get("/usuarios/:id", objUsuarioC.consultaUsuarioPorID);
-        this.router.put("/usuarios", objUsuarioC.actualizarUsuario);
-        this.router.delete("/usuarios", objUsuarioC.eliminarUsuario);
-    }
-    
-    config(){
-        //Se crea objeto de tipo serverController
-        const objUsuarioC = new UsuarioController();
-        //Se asigna a la ruta el método de consultarAlojamientos de serverController
-        this.router.post("/usuarios", objUsuarioC.registrar);
         //Ruta para validacion
         this.router.get("/usuarios/login", objUsuarioC.login);
         this.router.get("/usuarios", objUsuarioC.consultaUsuarios);
@@ -34,7 +23,7 @@ class UsuarioRouter{
         this.router.put("/usuarios", objUsuarioC.actualizarUsuario);
         this.router.delete("/usuarios", objUsuarioC.eliminarUsuario);
     }
-
+    
 }
 
 module.exports = UsuarioRouter;
