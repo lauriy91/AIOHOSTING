@@ -39,10 +39,8 @@
 
     </div>
     <!-- CIERRE CONTENEDOR DERECHO -->
-
   </div>
   <!-- CIERRE CONTENEDOR PRINCIPAL -->
-
 </template>
 
 <!-- SCRIPT -->
@@ -52,6 +50,7 @@ import BannerHome from "../components/BannerHome.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
 import ImagenHome from '../components/ImagenHome.vue';
 import TextoppalHome from '../components/TextoppalHome.vue';
+
 
 export default {
   components: {
@@ -100,9 +99,9 @@ export default {
 
 /*Estilo imagen del Home*/
 .secundario{
-  height: 100%;
   position: absolute;
   padding: 0% 0% 3% 42%;
+  margin-left: 5%;
 }
 
 /*Estilo del Footer*/

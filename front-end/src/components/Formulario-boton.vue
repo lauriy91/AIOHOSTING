@@ -24,12 +24,14 @@
                 <v-combobox
                   label="Tipo de alojamiento"
                   outlined
+                  v-model="itemscambiado"
+                  :value="itemselec"
                   :items="item"
                 ></v-combobox>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-combobox
-                  v-model="model"
+                  v-model="escenario"
                   :search-input.sync="search"
                   hide-selected
                   hint="Maximo 5 escenarios"
@@ -54,6 +56,7 @@
               <v-col cols="12" sm="3">
                 <v-text-field
                   label="Precio"
+                  v-model="precio"
                   prefix="$"
                   required
                   outlined
@@ -62,6 +65,7 @@
               <v-col cols="12" sm="3">
                 <v-text-field
                   label="Tiempo de estadia"
+                  v-model="tiempo"
                   required
                   outlined
                 ></v-text-field>
@@ -70,13 +74,13 @@
                 <v-textarea
                   outlined
                   name="Descripcion"
+                  v-model="descripcion"
                   label="Descripcion del alojamiento"
-                  :value="descripcion"
                   auto-grow
                 ></v-textarea>
               </v-col>
               <v-col cols="12">
-                <v-file-input label="Imagen" outlined dense></v-file-input>
+                <v-file-input v-model="imagen" label="Imagen" outlined dense></v-file-input>
               </v-col>
             </v-row>
           </v-container>
@@ -86,7 +90,7 @@
           <v-btn color="red darken-1" text @click="dialog = false">
             Cancelar
           </v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">
+          <v-btn color="blue darken-1" text @click="editarAlojamiento">
             Guardar
           </v-btn>
         </v-card-actions>
@@ -104,7 +108,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="red" text @click="dialog = false">Eliminar</v-btn>
+          <v-btn color="red" text @click="eliminar">Eliminar</v-btn>
           <v-btn color="primary" text @click="dialog = false">Cancelar</v-btn>
         </v-card-actions>
       </v-card>
@@ -113,16 +117,47 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data: () => ({
     dialog: false,
+    imagen:[],
+    search:"Playa",
+    itemscambiado: "",
     item: ["Coworking", "Coliving"],
   }),
   props: {
     tipodeboton: String,
     editar: Boolean,
-    espacio: String
+    tiempo: String,
+    espacio: String,
+    nom_alojamiento: String,
+    itemselec:String,
+    precio: Number,
+    puntuacion: Number,
+    descripcion:String,
+    ciudad: String,
+    escenario: Array,
+    id: String,
   },
+  methods:{
+    editarAlojamiento(){
+      let url="http://localhost:3000/alojamientos/" +this.id
+      console.log(url)
+
+      this.dialog = false
+    },
+    eliminar(){
+      let url2="http://localhost:3000/alojamientos/" +this.id
+      console.log(url2)
+      axios.delete(url2).then(res =>{
+        console.log(res.data)
+      }).catch(err =>{
+        console.log(err)
+      })
+      this.dialog = false
+    }
+  }
 };
 </script>
 

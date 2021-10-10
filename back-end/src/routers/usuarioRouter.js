@@ -20,10 +20,10 @@ class UsuarioRouter{
         this.router.get("/usuarios/login", objUsuarioC.login);
         this.router.get("/usuarios", objUsuarioC.consultaUsuarios);
         this.router.get("/usuarios/:id", objUsuarioC.consultaUsuarioPorID);
-        this.router.put("/usuarios", objUsuarioC.actualizarUsuario);
-        this.router.delete("/usuarios", objUsuarioC.eliminarUsuario);
+        this.router.put("/usuarios/:id", objUsuarioC.actualizarUsuario);
+        this.router.delete("/usuarios/:id", objUsuarioC.eliminarUsuario);
     }
-    
+
 }
 
 module.exports = UsuarioRouter;

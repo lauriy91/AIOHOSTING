@@ -40,6 +40,7 @@ const routes = [
     name: 'PanelAdmin',
     component: PanelAdmin
   }
+  
 ]
 
 const router = new VueRouter({

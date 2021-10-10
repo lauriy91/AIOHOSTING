@@ -39,8 +39,8 @@
       <!--Precio-->
       <v-col cols="4" class="pa-2" align-self="center">
         <v-col>
-          <p class="precio">Precio: 1 día</p>
-          <p class="preciohotel">$1000,000</p>
+          <p class="precio">Precio: {{tiempo}}</p>
+          <p class="preciohotel">{{precio}}</p>
           <v-col align-self="center" class="precio">
 
             <!--Botón-->
@@ -48,10 +48,10 @@
             </router-link>
             <v-row>
               <v-col cols="6">
-                 <formulario-boton  v-if="admin" tipodeboton="Editar" espacio="900px" :editar="true"></formulario-boton>
+                 <formulario-boton  v-if="admin" tipodeboton="Editar" espacio="900px" :editar="true" :nom_alojamiento="titulo" :itemselec="tipo" :ciudad="ciudad" :descripcion="descripcion" :escenario="escenario" :id="id" :puntuacion="numeroo" :precio="precio" :tiempo="tiempo"></formulario-boton>
               </v-col>
              <v-col cols="6">
-               <formulario-boton espacio="400px" v-if="admin" tipodeboton="Eliminar" :editar="false"></formulario-boton>
+               <formulario-boton :id="id" espacio="400px" v-if="admin" tipodeboton="Eliminar" :editar="false"></formulario-boton>
              </v-col>
             
             </v-row>
@@ -67,6 +67,7 @@ import FormularioBoton from './Formulario-boton.vue';
 export default {
   data() {
     return {
+      imagen:[this.url]
     };
   },
   props: {
@@ -75,7 +76,13 @@ export default {
     ciudad: String,
     url: String,
     nombrehotel: String,
-    admin: Boolean
+    admin: Boolean,
+    tiempo: String,
+    precio: Number,
+    escenario: Array,
+    tipo:String,
+    descripcion:String,
+    id: String,
   },
   methods:{
 

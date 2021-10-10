@@ -70,7 +70,7 @@ export default {
   color: purple;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    margin-inline-start: 11rem;
+    margin-inline-start: 4.7rem;
 }
 .lugar{
   font-size: 24px;

@@ -65,7 +65,7 @@ export default {
   color: darkcyan;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin-left: 11rem;
+  margin-left: 4.7rem;
 }
 .lugar {
   font-size: 24px;

@@ -33,7 +33,7 @@ export default {
 
 img{
   margin: -4% 0% 3% 14%;
-  width: 100%;
+  width: 130%;
 }
 
 .buscador_idioma{
