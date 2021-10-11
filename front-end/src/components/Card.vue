@@ -39,7 +39,7 @@
       <!--Precio-->
       <v-col cols="4" class="pa-2" align-self="center">
         <v-col>
-          <p class="precio">Precio: {{tiempo}}</p>
+          <p class="precio">Precio:</p>
           <p class="preciohotel">{{precio}}</p>
           <v-col align-self="center" class="precio">
 
