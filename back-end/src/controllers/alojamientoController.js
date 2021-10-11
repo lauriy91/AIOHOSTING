@@ -54,6 +54,7 @@ class AlojamientoController {
             }
         });
     }
+
     consultaPorNombre(req, res) {
         let nombre = req.params.nombre;
         alojamiento.find({ nombre: nombre }, (error, data) => {
@@ -136,16 +137,17 @@ class AlojamientoController {
             }
         });
     }
-
+    
     //Actualizar Alojamiento
     actualizar(req, res) {
-        let { id, nombre, tipo,puntuacion, ciudad,  escenario, precio, tiempo_estadia, descripcion } = req.body;
-        let objAlojamiento = { 
-            id, 
+        let { id, nombre, tipo,puntuacion, ciudad,  escenario, imagen, precio, tiempo_estadia, descripcion } = req.body;
+        let objAlojamiento = {  
             nombre, 
             tipo,
-            puntuacion, ciudad, 
+            puntuacion,
+            ciudad, 
             escenario, 
+            imagen,
             precio, 
             tiempo_estadia, 
             descripcion }

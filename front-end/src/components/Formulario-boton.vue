@@ -4,6 +4,7 @@
       <template v-slot:activator="{ on, attrs }">
         <a v-bind="attrs" v-on="on" class="border color"> {{ tipodeboton }} </a>
       </template>
+
       <!-- ESTE ES EL FORMULARIO PARA EDITAR -->
       <v-card v-if="editar">
         <v-card-title>
@@ -28,6 +29,14 @@
                   :value="itemselec"
                   :items="item"
                 ></v-combobox>
+              </v-col>
+              <v-col cols="12" sm="3">
+                <v-text-field
+                  label="Ciudad"
+                  v-model="ciudad"
+                  required
+                  outlined
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-combobox
@@ -66,6 +75,16 @@
                 <v-text-field
                   label="Tiempo de estadia"
                   v-model="tiempo"
+                  hint="Cantidad días"
+                  required
+                  outlined
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="3">
+                <v-text-field
+                  label="Puntuacion"
+                  v-model="puntuacion"
+                  hint="Mínimo 1 y máximo 5"
                   required
                   outlined
                 ></v-text-field>
@@ -80,7 +99,12 @@
                 ></v-textarea>
               </v-col>
               <v-col cols="12">
-                <v-file-input v-model="imagen" label="Imagen" outlined dense></v-file-input>
+                <v-file-input
+                  v-model="imagen"
+                  label="Imagen"
+                  outlined
+                  dense
+                ></v-file-input>
               </v-col>
             </v-row>
           </v-container>
@@ -96,9 +120,7 @@
         </v-card-actions>
       </v-card>
       <v-card v-if="!editar">
-        <v-card-title class="text-h5 grey lighten-2">
-          Alerta!
-        </v-card-title>
+        <v-card-title class="text-h5 grey lighten-2"> Alerta! </v-card-title>
 
         <v-card-text>
           ¿Esta seguro que desea eliminar el alojamiento?
@@ -117,12 +139,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data: () => ({
     dialog: false,
-    imagen:[],
-    search:"Playa",
+    imagen: [],
+    search: "Playa",
     itemscambiado: "",
     item: ["Coworking", "Coliving"],
   }),
@@ -132,32 +154,42 @@ export default {
     tiempo: String,
     espacio: String,
     nom_alojamiento: String,
-    itemselec:String,
+    itemselec: String,
     precio: Number,
     puntuacion: Number,
-    descripcion:String,
+    descripcion: String,
     ciudad: String,
     escenario: Array,
     id: String,
   },
-  methods:{
-    editarAlojamiento(){
-      let url="http://localhost:3000/alojamientos/" +this.id
-      console.log(url)
-
-      this.dialog = false
+  methods: {
+    editarAlojamiento() {
+      let url = "http://localhost:3000/alojamientos/" + this.id;
+      console.log(url);
+      axios
+        .put(url)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.dialog = false;
     },
-    eliminar(){
-      let url2="http://localhost:3000/alojamientos/" +this.id
-      console.log(url2)
-      axios.delete(url2).then(res =>{
-        console.log(res.data)
-      }).catch(err =>{
-        console.log(err)
-      })
-      this.dialog = false
-    }
-  }
+    eliminar() {
+      let url2 = "http://localhost:3000/alojamientos/" + this.id;
+      console.log(url2);
+      axios
+        .delete(url2)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.dialog = false;
+    },
+  },
 };
 </script>
 
