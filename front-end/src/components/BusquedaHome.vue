@@ -27,6 +27,7 @@ export default {};
   border-right: 2px solid white;
 }
 .b_busqueda input {
+  position: absolute;
   border: 1.5px solid white;
   color: rgba(250, 250, 250, 0.856);
   padding: 2% 6%; /** Distancia entre los bordes del ovalo de */
@@ -40,7 +41,6 @@ export default {};
   outline: none;
 }
 .b_busqueda input::placeholder{
-  color: white;
+  color: rgb(255, 255, 255);
 }
-
 </style>
