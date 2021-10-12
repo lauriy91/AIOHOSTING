@@ -12,7 +12,7 @@
     </div>
 
     <!--Contendedor del Banner -->
-    <div class="bannerhome">
+    <div class="banerhome">
       <banner-home />
     </div>
 
@@ -32,6 +32,11 @@
       <imagen-home />
     </div>
 
+    <!--Contenedor del buscador -->
+    <div class="boton-buscar">
+      <busqueda-home />
+    </div>
+
     <!--Contenedor del footer-->
     <div class="footer">
       <footer-descripcion />
@@ -39,8 +44,10 @@
 
     </div>
     <!-- CIERRE CONTENEDOR DERECHO -->
+
   </div>
   <!-- CIERRE CONTENEDOR PRINCIPAL -->
+
 </template>
 
 <!-- SCRIPT -->
@@ -50,14 +57,14 @@ import BannerHome from "../components/BannerHome.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
 import ImagenHome from '../components/ImagenHome.vue';
 import TextoppalHome from '../components/TextoppalHome.vue';
-
-
+import BusquedaHome from '../components/BusquedaHome.vue';
 export default {
   components: {
     BannerHome,
     ImagenHome,
     FooterDescripcion,
     TextoppalHome,
+    BusquedaHome,
   },
   data: () => {
     return {};
@@ -74,41 +81,38 @@ export default {
 
 <!-- SECCIÓN ESTILOS -->
 <style>
-
-
 /*Estilo del Logo*/
 .logo { 
   position: absolute;
-  margin-top: 0.5%;
+  margin-top: -10%;
   margin-left: 2%;
 }
-
 /*Estilo del Banner */
-.bannerhome{
-  position: absolute;
-  margin-top: 11%;
+.banerhome {
+  margin-top: 10%;
   width: 100%;
 }
-
 /*Estilo del texto del Home*/
 .texto-ppal{
   position: absolute;
-  margin: 20% 50% 0% 3%;
+  margin: 3% 50% 0% 3%;
   width: 50%;
 }
-
 /*Estilo imagen del Home*/
 .secundario{
   position: absolute;
-  padding: 0% 0% 3% 42%;
-  margin-left: 5%;
+  margin: -23% 0% 3% 45%;
 }
-
+/*Estilo del buscador*/
+.boton-buscar{
+  height: 100%;
+  position: absolute;
+  margin: -13% 0% 3% 42%;
+}
 /*Estilo del Footer*/
 .footer{
   position: absolute;
-  padding-top: 40%;
+  padding-top: 25%;
   margin-left: 85%;
 }
-
 </style>
