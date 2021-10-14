@@ -111,6 +111,9 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
+           <v-btn color="blue darken-1" text @click="editarAlojamiento">
+            Crear
+          </v-btn>
           <v-btn color="red darken-1" text @click="dialog = false">
             Cancelar
           </v-btn>
@@ -164,10 +167,21 @@ export default {
   },
   methods: {
     editarAlojamiento() {
-      let url = "http://localhost:3000/alojamientos/" + this.id;
+      let url = "https://aiohosting.herokuapp.com/alojamientos/" + this.id;
+      let datos= {
+    nombre: this.nom_alojamiento,
+    tipo: this.tipo,
+    puntuacion: this.puntuacion,
+    ciudad: this.ciudad,
+    escenario: this.escenario,
+    precio: this.precio,
+    tiempo_estadia: this.tiempo,
+    descripcion: this.descripcion,
+}
+      
       console.log(url);
       axios
-        .put(url)
+        .put(url, datos)
         .then((res) => {
           console.log(res.data);
         })
@@ -177,7 +191,7 @@ export default {
       this.dialog = false;
     },
     eliminar() {
-      let url2 = "http://localhost:3000/alojamientos/" + this.id;
+      let url2 = "https://aiohosting.herokuapp.com/alojamientos/" + this.id;
       console.log(url2);
       axios
         .delete(url2)

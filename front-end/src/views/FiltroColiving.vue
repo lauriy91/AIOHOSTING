@@ -6,11 +6,7 @@
       <v-row v-for="item in coliving" :key="item.id">
         <Card
           nombrehotel="nombrehotel"
-          :url="item.url"
-          :titulo="item.titulo"
-          :numeroo="item.numero"
-          :ciudad="item.ciudad"
-          class="lugar"
+          :url="item.imagen" :precio="item.precio" :tiempo="item.tiempo_estadia" :titulo="item.nombre" :escenario="item.escenario" :numeroo="item.puntuacion" :ciudad="item.ciudad" :tipo="item.tipo" :id="item._id" :descripcion="item.descripcion" class="lugar"
         ></Card>
       </v-row>
     </div>
@@ -21,34 +17,13 @@
 import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from "../components/FooterDescripcion.vue";
+import axios from "axios";
 export default {
   data() {
     return {
       busqueda: true,
       coliving: [
-        {
-          id: 1,
-          url: "https://i.ibb.co/X7s3Srm/detallada-1.jpg",
-          titulo: "Hotel Costa",
-          ciudad: "San Andrés y Providencia",
-          numero: 4.3,
-        },
-        {
-          id: 2,
-          url:
-            "https://i.ibb.co/9qzhb34/Close-up-of-young-group-of-startapers-sitting-in-library-making-research-about-future-tem-project-lo.jpg",
-          titulo: "Hotel Tequendama",
-          ciudad: "Bogotá",
-          numero: 3.8,
-        },
-        {
-          id: 3,
-          url:
-            "https://i.ibb.co/F89nC4p/Young-female-executive-explaines-new-strategy-to-blonde-employee-in-glasses-and-smiling-Indoor-portr.jpg",
-          titulo: "Hotel el Dorado",
-          ciudad: "Guatavita",
-          numero: 4.7,
-        },
+        
       ],
     };
   },
@@ -57,6 +32,7 @@ export default {
     BannerDescripcion,
     FooterDescripcion,
   },
+  mounted(){axios.get("https://aiohosting.herokuapp.com/alojamientos/tipo/Coliving").then(res=>{this.coliving=res.data.data}).catch(error=>{console.log (error)})}
 };
 </script>
 <style scoped>

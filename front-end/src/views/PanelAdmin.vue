@@ -3,6 +3,8 @@
     <BannerDescripcion :ver="busqueda"></BannerDescripcion>
     
     <h1 class="coworking">Panel Admin</h1>
+    <CrearAlojamiento>
+    </CrearAlojamiento>
     <div class="container">
       <v-row v-for="item in alojamiento" :key="item.id">
       <Card nombrehotel="nombrehotel2" :url="item.imagen" :precio="item.precio" :tiempo="item.tiempo_estadia" :titulo="item.nombre" :escenario="item.escenario" :numeroo="item.puntuacion" :ciudad="item.ciudad" :tipo="item.tipo" :id="item._id" :descripcion="item.descripcion" class="lugar" :admin="true"></Card>
@@ -19,6 +21,7 @@ import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
 import axios from 'axios';
+import CrearAlojamiento from '../components/CrearAlojamiento.vue';
 export default {
     data(){
     return{
@@ -31,10 +34,11 @@ export default {
     FooterDescripcion,
     BannerDescripcion,
     Formularioboton,
+    CrearAlojamiento,
    
   },
   mounted(){
-    axios.get('http://localhost:3000/alojamientos').then(res =>{
+    axios.get("https://aiohosting.herokuapp.com/alojamientos/").then(res =>{
       this.alojamiento = res.data
 
     }).catch(err =>{

@@ -7,7 +7,10 @@
     <h1 class="coworking">Coworking</h1>
     <div class="container">
       <v-row v-for="item in coliving" :key="item.id">
-      <Card nombrehotel="nombrehotel" :url="item.url" :titulo="item.titulo" :numeroo="item.numero" :ciudad="item.ciudad" class="lugar" :admin="false"></Card>
+      <Card
+          nombrehotel="nombrehotel"
+          :url="item.imagen" :precio="item.precio" :tiempo="item.tiempo_estadia" :titulo="item.nombre" :escenario="item.escenario" :numeroo="item.puntuacion" :ciudad="item.ciudad" :tipo="item.tipo" :id="item._id" :descripcion="item.descripcion" class="lugar"
+        ></Card>
       </v-row>
     </div>
     <footer-descripcion/>
@@ -21,42 +24,24 @@ import Formularioboton from "../components/Formulario-boton.vue";
 import BannerDescripcion from "../components/BannerDescripcion.vue";
 import Card from "../components/Card.vue";
 import FooterDescripcion from '../components/FooterDescripcion.vue';
+import axios from "axios";
 export default {
-  data(){
-    return{
-      busqueda:true,
-      coliving:[
-        {
-        id: 1,
-        url:"https://i.ibb.co/9nWW87V/Young-man-with-cup-of-tea-looking-at-data-on-laptop-display-being-pointed-at-by-one-of-colleagues-at.jpg",
-        titulo: "Hotel Wiwa",
-        ciudad: "Medellín",
-        numero:4.3 
-        },
-        {
-        id: 2,
-        url:"https://i.ibb.co/nbpXn8w/Startup-business-teamwork-concept-Group-of-perspective-young-people-on-meeting-in-big-modern-library.jpg",
-        titulo: "Hotel Bogotá",
-        ciudad: "Bogotá",
-        numero:3.8
-        },
-        {
-        id: 3,
-        url:"https://i.ibb.co/x2Z8qsf/Creative-group-working-on-startup-using-laptops-in-modern-co-working-with-potted-plant-Business-coll.jpg",
-        titulo: "Hostal Americas",
-        ciudad: "Pasto",
-        numero:4.7
-        },
-      ]
-    }
+  data() {
+    return {
+      busqueda: true,
+      coliving: [
+        
+      ],
+    };
   },
   components: {
     Card,
-    FooterDescripcion,
     BannerDescripcion,
-    Formularioboton,
+    FooterDescripcion,
   },
+  mounted(){axios.get("https://aiohosting.herokuapp.com/alojamientos/tipo/Coworking").then(res=>{this.coliving=res.data.data}).catch(error=>{console.log (error)})}
 };
+
 </script>
 
 <style scoped>
