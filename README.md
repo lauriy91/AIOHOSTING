@@ -10,25 +10,26 @@
 
 [![login.png](https://i.postimg.cc/0QsKV8rm/login.png)](https://postimg.cc/Mc9GTJ7K)
 
-<h2> Create a profile... </h2>
-
-[![profile.png](https://i.postimg.cc/3Rtr27G3/profile.png)](https://postimg.cc/Vrbccx4h)
 
 <h2> Coworking or Coliving?... </h2>
 
 [![filtro-Coworking-vue-aio.png](https://i.postimg.cc/bw9bWdkZ/filtro-Coworking-vue-aio.png)](https://postimg.cc/184fNmWS)
 
+
 <h2> As you want, just filter de information and done... </h2>
 
 [![filtro-Coworking-vue-aio.png](https://i.postimg.cc/85MTXff3/filtro-Coworking-vue-aio.png)](https://postimg.cc/CBMyz1NH)
+
 
 <h2> As you want, just filter de information and done... </h2>
 
 [![descripcion1-aio.png](https://i.postimg.cc/Tw4n0SmQ/descripcion1-aio.png)](https://postimg.cc/JDjy4ppB)
 
+
 <h2> And reserve it, so easy... </h2>
 
 [![formulario-reserva-aio.png](https://i.postimg.cc/bdXkctmt/formulario-reserva-aio.png)](https://postimg.cc/FkZ7075r)
+
 
 <label>[...]Let see!</label>
 
